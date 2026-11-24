@@ -30,6 +30,10 @@ This file is the top-level map of preserved research and project material.
 
 - [Resource availability log](docs/operations/RESOURCE_AVAILABILITY_LOG.md)
 
+## Mathematical research capsules
+
+- [Pattern representation and democratization of mathematical intuition — research capsule 001](docs/mathematics/PATTERN_REPRESENTATION_RESEARCH_CAPSULE_001.md)
+
 ## Preservation status
 
 An index entry indicates that a document is archived, not that its claims are scientifically verified or approved. Each document's status, provenance, and transformation history govern its interpretation.
