@@ -1,59 +1,50 @@
 # IDEA_CAPSULE
 
 **Project:** Rolling Science  
-**Current direction:** Alnatiq (الناطق)  
-**Status:** Governance and scientific preparation  
-**Version:** 0.1 — Draft
+**Current direction:** Open research archive and knowledge mine  
+**Version:** 0.2 — Working capsule  
+**Status:** Archive foundation published; research programs remain at different evidence and approval stages
 
 ## 1. Current issue
 
-Establish a reliable research and governance foundation for Rolling Science before beginning application implementation.
+Develop Rolling Science into an open, navigable, and traceable research repository that preserves source material, methods, evidence, uncertainty, decisions, and transformations for later independent study and reuse.
 
-The current application direction, Alnatiq, connects:
+The archive is not restricted to one application. Alnatiq (الناطق) is one project collection within the wider research program.
 
-**Functional anatomy → Physiological mechanisms → Speech production → Acoustic signal → Learning and feedback.**
+## 2. Research orientation
 
-## 2. Documented boundaries
+The repository supports practical study of systems, transformations, benefits, losses, damage, and harm. It must preserve distinctions between these dimensions and avoid premature aggregation into one score or a universal theory.
 
-- Alnatiq is an educational project, not a diagnostic tool.
-- The initial learning sound is /b/.
-- No anatomical cause may be inferred from an audio recording alone.
-- Local operation and privacy are core requirements for the initial scope.
-- No diagnostic claims, automated clinical judgments, or unsupported accuracy figures are permitted.
+A dedicated mathematical research area is reserved for **رياضيات دفع الضرر** and the related working label **رياضيات دفعية**. These are research directions under development, not completed or validated mathematical systems.
 
-## 3. Not yet established
+## 3. Evidence and preservation rules
 
-- A validated reference recording.
-- A validated assessment model.
-- Training datasets.
-- Measured accuracy or clinical validity.
-- Completed application code or verified functional tests.
+- Preserve original source material separately from summaries, translations, and analyses.
+- Record provenance, date, version, source location, language, and transformations where known.
+- Classify claims as documented, inferred, proposed, unavailable, or unsupported.
+- Keep operational availability separate from knowledge status.
+- Record measurement definitions, units, methods, uncertainty, missingness, and limitations.
+- A document's presence in the archive does not mean its claims are verified or approved.
 
-## 4. Governance decisions
+## 4. Current project direction: Alnatiq
 
-The current workflow is governed by DEC-025 through DEC-030:
+Alnatiq is an educational, non-diagnostic project connecting functional anatomy, physiological mechanisms, speech production, acoustic signals, and learning. Its initial learning sound is /b/. It remains subject to scientific review and explicit owner approval before specification and implementation.
 
-1. Gemini prepares `SCIENTIFIC_EDU_BRIEF_v0.1.md`.
-2. Perplexity independently prepares `RESEARCH_FINDINGS_v0.1.md`.
-3. ChatGPT synthesizes and reviews the contributions in `SCIENCECAPSULE_v0.1.md`.
-4. The project owner reviews and approves the scientific capsule.
-5. Specifications and acceptance criteria are prepared after approval.
-6. The owner approves the specifications before implementation.
-7. Copilot performs repository implementation only within the approved scope.
+## 5. Current repository organization
 
-## 5. Current next step
+- `docs/research/` — research questions, literature, and evidence.
+- `docs/projects/` — project-specific collections.
+- `docs/methodology/` — provenance, measurement, uncertainty, and reproducibility.
+- `docs/mathematics/` — gain, loss, damage, and دفعية research.
+- `docs/operations/` — resource availability and operational interruptions.
+- `archive/` — dated source captures and historical snapshots.
 
-Prepare and review the governance foundation files:
+See `ARCHIVE_INDEX.md` for the navigation map.
 
-- `README.md`
-- `IDEA_CAPSULE.md`
-- `AGENTS.md`
-- `CONTEXT_STATE.md`
+## 6. Current next step
 
-The first governance commit, if approved, does not constitute approval of Alnatiq's implementation specifications.
+Continue populating the archive with source-preserving records and evidence registers. Review and formalize mathematical definitions only when their variables, units, assumptions, and empirical or logical basis can be stated.
 
-## 6. Operating rule
+## 7. Operating rule
 
-**Governance first. Evidence before specifications. Owner approval before implementation.**
-
-Every new claim must be classified and supported by an identifiable source or explicitly marked as unverified.
+**Preserve first. Trace every transformation. Measure before claims. Keep proposals distinct from decisions. Owner approval before implementation.**
