@@ -51,7 +51,33 @@ Service quota messages are operational observations, not verified measures of wo
 
 The repository is public, but no license has been selected in this record. Public visibility must not be described as an open-source license or permission to reuse third-party material.
 
-## 7. Next actions
+## 7. Archive preservation update
+
+The following artifacts were added and verified on `main` during the 2026-11-24 archive work:
+
+- `ARCHIVE_INDEX.md`
+- `docs/README.md`
+- `docs/research/README.md`
+- `docs/projects/README.md`
+- `docs/projects/alnatiq/README.md`
+- `docs/projects/alnatiq/reviews/SCIENCE_REVIEW_DRAFT_2026-11-24.md`
+- `docs/methodology/README.md`
+- `docs/mathematics/README.md`
+- `docs/templates/EVIDENCE_RECORD_TEMPLATE.md`
+- `docs/operations/RESOURCE_AVAILABILITY_LOG.md`
+- `archive/source-captures/2026-11-24/ALNATIQ_SCIENCE_REVIEW_DRAFT_OWNER_TEXT.md`
+
+The owner-provided Alnatiq review draft is preserved both as a source capture and as a separately normalized working copy. The source capture is not independently verified; the normalized copy records its transformation.
+
+Archive commits:
+- `43df98259c4edc6416eca32842105958771501b3` — initial archive structure and research taxonomy.
+- `b94a266f57ec3137b323cab6046f8bc1642814d0` — owner-provided source capture.
+- `e386d6d287afcc36a69d5de2074acfdb6493d85f` — updated current research capsule.
+- `0963420cf17c508a4950f5e94e72e4add71535c6` — archive index update.
+
+These entries describe repository operations, not scientific validation or approval of the archived claims.
+
+## 8. Next actions
 
 1. Continue organizing existing research and project material with source provenance.
 2. Add scientific and mathematical records as separate, versioned artifacts.
