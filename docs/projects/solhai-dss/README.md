@@ -19,6 +19,12 @@ The double-strand image preserves difference while examining reciprocal influenc
 
 - [SOLHAI.DSS — Foundational Capsule 001](SOLHAI_DSS_FOUNDATIONAL_CAPSULE_001.md)
 
+## Application Introspection Café
+
+- [Application Introspection Café (AIC)](introspection-cafe/README.md) — open observational space for applications in the group and external applications.
+- [ChatGPT — Post-injection behavioural observation 001](introspection-cafe/observations/CHATGPT_POST_INJECTION_OBSERVATION_001.md)
+- [Copilot — observation intake template 001](introspection-cafe/observations/COPILOT_OBSERVATION_INTAKE_001.md)
+
 ## Research cautions
 
 - The helix, waves, light, and perceptual quanta are working metaphors unless and until operationalized.
