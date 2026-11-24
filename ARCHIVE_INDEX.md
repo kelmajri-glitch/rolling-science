@@ -5,7 +5,7 @@ This file is the top-level map of preserved research and project material.
 ## Repository foundation
 
 - `README.md` — public purpose and entry point.
-- `IDEA_CAPSULE.md` — concise current issue and workflow.
+- `IDEA_CAPSULE.md` — current issue, research orientation, and operating rule.
 - `AGENTS.md` — collaboration, evidence, preservation, and safety rules.
 - `CONTEXT_STATE.md` — operational state, not a transcript archive.
 
@@ -20,7 +20,11 @@ This file is the top-level map of preserved research and project material.
 
 - [Project collections](docs/projects/README.md)
 - [Alnatiq archive](docs/projects/alnatiq/README.md)
-- [Alnatiq review draft — 2026-11-24](docs/projects/alnatiq/reviews/SCIENCE_REVIEW_DRAFT_2026-11-24.md)
+- [Alnatiq review draft — normalized working copy](docs/projects/alnatiq/reviews/SCIENCE_REVIEW_DRAFT_2026-11-24.md)
+
+## Source captures
+
+- [Owner-provided Alnatiq review draft — source capture, 2026-11-24](archive/source-captures/2026-11-24/ALNATIQ_SCIENCE_REVIEW_DRAFT_OWNER_TEXT.md)
 
 ## Operations
 
@@ -28,4 +32,4 @@ This file is the top-level map of preserved research and project material.
 
 ## Preservation status
 
-This index records the repository's intended organization. A link indicates that a document is archived, not that its claims are scientifically verified or approved. Refer to each document's status and provenance fields.
+An index entry indicates that a document is archived, not that its claims are scientifically verified or approved. Each document's status, provenance, and transformation history govern its interpretation.
