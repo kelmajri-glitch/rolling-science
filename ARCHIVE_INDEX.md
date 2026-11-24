@@ -21,6 +21,8 @@ This file is the top-level map of preserved research and project material.
 - [Project collections](docs/projects/README.md)
 - [Alnatiq archive](docs/projects/alnatiq/README.md)
 - [Alnatiq review draft — normalized working copy](docs/projects/alnatiq/reviews/SCIENCE_REVIEW_DRAFT_2026-11-24.md)
+- [SOLHAI.DSS — project index](docs/projects/solhai-dss/README.md)
+- [SOLHAI.DSS — foundational capsule 001](docs/projects/solhai-dss/SOLHAI_DSS_FOUNDATIONAL_CAPSULE_001.md)
 
 ## Source captures
 
