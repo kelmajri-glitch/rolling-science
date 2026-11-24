@@ -2,31 +2,38 @@
 
 **An open research seed for independent measurement, simulation, criticism, and knowledge growth across forks.**
 
-Rolling Science is an evolving research initiative concerned with developing practical, transparent, and reproducible ways to study systems, transformations, benefits, losses, and harms.
+Rolling Science is an evolving research initiative for practical, transparent, and reproducible study of systems, transformations, benefits, losses, harms, and the conditions under which knowledge is produced.
 
-It aims to support independent inquiry, evidence-based criticism, and the gradual development of knowledge across different environments and contexts.
+Its purpose is not to force every subject into one theory or one score. It is to preserve evidence, methods, uncertainty, context, and the history of changes so that different researchers and environments can inspect, challenge, reuse, and extend the work.
 
 ## Core principles
 
-- **Measure before making claims.**
-- **Do not trust blindly; do not accuse without evidence.**
-- Distinguish observed facts from interpretations, hypotheses, and proposals.
+- Measure before making claims.
+- Do not trust blindly; do not accuse without evidence.
+- Preserve source material and distinguish it from interpretation.
 - Record uncertainty, missing information, limitations, and methodological constraints.
-- Preserve the traceability of knowledge, decisions, and changes.
+- Keep benefits, costs, losses, and harms distinguishable unless a justified model explicitly relates them.
+- Preserve traceability of knowledge, decisions, transformations, and changes.
 - Prefer practical, testable contributions over unsupported general claims.
-- Support adaptation and independent development across different environments.
+- Support adaptation, localization, and independent development across environments.
 
-## Research directions
+## Repository map
 
-Rolling Science may host multiple research directions and projects.
+- [Documentation hub](docs/README.md) — how the knowledge base is organized.
+- [Research archive](docs/research/README.md) — research records, evidence, and review work.
+- [Projects](docs/projects/README.md) — project-specific material, beginning with Alnatiq.
+- [Methodology](docs/methodology/README.md) — provenance, measurement, uncertainty, and reproducibility.
+- [Mathematical research](docs/mathematics/README.md) — a working area for studying gain, loss, damage, and دفعية / دفع الضرر without premature formalization.
+- [Archive index](ARCHIVE_INDEX.md) — dated archive map and preservation rules.
+- [Evidence record template](docs/templates/EVIDENCE_RECORD_TEMPLATE.md) — repeatable evidence capture.
 
-One current direction is the development of **Alnatiq (الناطق)**, an educational project connecting the functional anatomy and physiology of speech production with acoustic signals and learning.
+## Current research directions
 
-Alnatiq is educational, not diagnostic. Its initial development scope is subject to scientific review, specification, and explicit owner approval.
+Rolling Science may host multiple independent but linkable research directions. Alnatiq (الناطق) is one current educational project connecting functional anatomy and physiology of speech production with acoustic signals and learning. Its status and boundaries are documented in [the Alnatiq project area](docs/projects/alnatiq/README.md).
 
 ## Governance and development
 
-The project follows a staged approach:
+The default sequence is:
 
 1. Governance and knowledge organization.
 2. Scientific and technical research.
@@ -34,36 +41,24 @@ The project follows a staged approach:
 4. Owner-approved specifications.
 5. Controlled implementation and testing.
 
-The presence of a document in this repository does not automatically mean that its contents have been approved for implementation.
-
-The project owner retains final authority over project decisions, specifications, and releases.
+A document's presence in this repository does not mean it is verified, accepted, or approved for implementation. The project owner retains final authority over decisions, specifications, and releases.
 
 ## Evidence and status
 
-Project documents should distinguish between:
+Substantive claims should be classified as:
 
-- **Documented:** supported by an identifiable source or verifiable observation.
-- **Inferred:** a reasoned interpretation based on available evidence.
-- **Proposed:** a suggestion that has not been approved.
-- **Unavailable:** information that could not be accessed or retrieved.
-- **Unsupported:** a claim for which adequate evidence has not been provided.
+- **Documented** — supported by an identifiable source or verifiable observation.
+- **Inferred** — a reasoned interpretation based on available evidence.
+- **Proposed** — a suggestion not yet approved.
+- **Unavailable** — information that could not be accessed or retrieved.
+- **Unsupported** — a claim lacking adequate evidence.
 
-Absence of accessible evidence must not be treated as proof that something never existed.
+Keep knowledge status separate from operational availability. A temporarily unavailable contributor or service does not prove that the relevant knowledge is absent.
 
-## Open development
+## Open development and licensing
 
-The repository is intended to support transparent research and future collaboration. The applicable software and content licensing terms remain subject to an explicit decision by the project owner.
-
-Until a license is selected and published, no specific open-source license should be assumed.
+The repository is public. However, public visibility alone does not grant an open-source license or establish reuse permissions. No software or content license is asserted until the owner selects and publishes the applicable terms. Third-party material must retain its own source and rights information.
 
 ## Repository status
 
-This repository is in its governance and knowledge-foundation stage.
-
-The existence of this repository does not imply that application code, reference recordings, datasets, validated models, or completed tests are available.
-
-## Contact and contributions
-
-Research contributions should identify their sources, methods, limitations, and intended scope.
-
-Contributions do not become project decisions without the required review and owner approval.
+The repository is being developed as a structured, open research archive. Its existence does not imply that application code, reference recordings, datasets, validated models, or completed tests are available.

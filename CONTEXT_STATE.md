@@ -1,126 +1,60 @@
 # CONTEXT_STATE
 
 **Project:** Rolling Science  
-**Current direction:** Alnatiq (الناطق)  
-**State version:** 0.1 — Draft  
-**Last prepared:** 2026-11-24  
-**Approval status:** Approved by project owner for governance-foundation publication
+**Current direction:** Multi-domain open research archive; Alnatiq is the first organized project area  
+**State version:** 0.2 — Operational update  
+**Last updated:** 2026-11-24  
+**Approval status:** Repository organization and documentation archive initiated under the owner's instruction in this conversation
 
-## 1. Repository state
+## 1. Repository identity and observed state
 
-Repository: `kelmajri-glitch/rolling-science`
+Repository: `kelmajri-glitch/rolling-science`  
+Visibility: public  
+Default branch: `main`
 
-The repository was directly inspected through the GitHub integration in a previous working session.
+Direct inspection during this session confirmed that the root contains `README.md`, `IDEA_CAPSULE.md`, `AGENTS.md`, and `CONTEXT_STATE.md`. The latest observed parent commit before this archive update was `f350efcd979bb3cb6be6cb88cffed00c6312bc18`.
 
-The observed results were:
+## 2. Repository purpose
 
-- Public repository.
-- Default branch: `main`.
-- Reported repository size: 0.
-- Contents request returned GitHub's empty-repository response.
-- Branch search returned no branches.
-- Commit search returned GitHub's empty-repository response.
+The repository is being organized as an open research archive or "knowledge mine": material is preserved with provenance and status so that it can be revisited, criticized, compared, localized, and reused. It is not limited to one application.
 
-**Evidence limitation:** The exact time of that earlier inspection is not preserved in this document. These observations describe the result of that inspection only. They are not a permanent statement about the repository's current state.
+The mathematical research area will preserve the distinction between gain/benefit and loss/damage, and will not impose a unified scalar model before definitions, units, and assumptions are justified.
 
-**Required before the first commit:** Recheck repository contents, branches, and commit history.
+## 3. Structure introduced in this update
 
-## 2. Project status
+- `docs/research/` — research records and evidence.
+- `docs/projects/` — project-specific collections.
+- `docs/projects/alnatiq/` — Alnatiq project archive and review drafts.
+- `docs/methodology/` — provenance, measurement, uncertainty, and reproducibility.
+- `docs/mathematics/` — working area for gain, loss, damage, and دفعية / دفع الضرر.
+- `docs/templates/` — reusable evidence-record template.
+- `docs/operations/` — operational availability and interruption records.
+- `archive/` — dated snapshots and working-state records.
 
-Rolling Science is in the governance and knowledge-foundation stage.
+This structure is an initial taxonomy, not a claim that every folder already contains a complete body of research.
 
-Alnatiq is a proposed educational application direction within the project.
+## 4. Alnatiq status
 
-No verified evidence is currently recorded here for:
+Alnatiq remains an educational, non-diagnostic project direction. Initial sound: /b/. Scientific review and specification gates remain in force.
 
-- Completed application code.
-- A validated reference audio recording.
-- A validated assessment model.
-- Training datasets.
-- Measured accuracy or clinical validity.
-- Completed acceptance tests.
+- `SCIENCE_REVIEW_DRAFT.md` is archived as a working draft dated 2026-11-24.
+- Gemini's PKG-01 output has not been received in the material available for this update; the user reported a quota-limit message and a displayed reset time of 8:32 PM. The reset mechanism and actual restoration are not independently verified.
+- Perplexity's PKG-02 remains pending according to the latest user-provided status.
+- No scientific capsule or implementation specification is approved by this archive update.
+- Copilot implementation remains outside the current scope.
 
-These items must not be described as completed unless independently verified.
+## 5. Resource availability
 
-## 3. Alnatiq scientific direction
+Service quota messages are operational observations, not verified measures of work cost or reliable schedules. Do not plan the research program around displayed reset times unless their reliability is established. Record only the message, observation time, affected task, and resulting interruption when known.
 
-The intended educational relationship is:
+## 6. Licensing
 
-**Functional anatomy → Physiological mechanisms → Speech production → Acoustic signal → Learning and feedback.**
+The repository is public, but no license has been selected in this record. Public visibility must not be described as an open-source license or permission to reuse third-party material.
 
-Initial sound: /b/.
+## 7. Next actions
 
-The application is educational, not diagnostic.
-
-A recording alone must not be used to infer an anatomical cause or establish a clinical diagnosis.
-
-Privacy and local operation are foundational requirements for the initial version.
-
-## 4. Current workflow decisions
-
-The following decisions define the current workflow:
-
-- **DEC-025:** Gemini prepares `SCIENTIFIC_EDU_BRIEF_v0.1.md`.
-- **DEC-026:** Perplexity prepares `RESEARCH_FINDINGS_v0.1.md`.
-- **DEC-027:** ChatGPT synthesizes and reviews the contributions in `SCIENCECAPSULE_v0.1.md`.
-- **DEC-028:** ChatGPT does not prepare Copilot implementation specifications before owner approval of the scientific capsule.
-- **DEC-029:** Copilot begins with repository inspection only and makes no changes before approval of `ALNATIQ_SPEC_v0.1`.
-- **DEC-030:** `IDEA_CAPSULE_PROTOCOL` is the standard knowledge-transfer mechanism.
-
-Earlier decision identifiers must not be treated as approved merely because they appear in previous discussions. Their approval status requires verification.
-
-## 5. Required scientific outputs
-
-Pending receipt and review:
-
-1. `SCIENTIFIC_EDU_BRIEF_v0.1.md`
-2. `RESEARCH_FINDINGS_v0.1.md`
-3. `SCIENCECAPSULE_v0.1.md`
-
-The scientific capsule requires explicit owner approval before specification work proceeds.
-
-## 6. Required technical outputs
-
-After scientific approval:
-
-- `ALNATIQ_SPEC_v0.1.md`
-- `ACCEPTANCE_TESTS.md`
-- `PRIVACY_AND_SAFETY.md`
-- `COPILOT_HANDOFF.md`
-
-These documents require owner review and approval before implementation.
-
-## 7. Governance foundation
-
-The initial documentation set approved for the repository is:
-
-- `README.md`
-- `IDEA_CAPSULE.md`
-- `AGENTS.md`
-- `CONTEXT_STATE.md`
-
-The project owner approved publication of these four governance-foundation files on 2026-11-24.
-
-The governance foundation does not constitute approval of application specifications or implementation.
-
-## 8. Licensing status
-
-The repository is public, but the project license has not been selected in this record.
-
-No specific software or content license should be assumed.
-
-A `LICENSE` file must be added only after the project owner selects the applicable license.
-
-## 9. Current unresolved matters
-
-- Verification of the repository immediately before the first commit.
-- Owner decision on the project license.
-- Completion of scientific and independent research contributions.
-- Scientific capsule review and approval.
-- Preparation and approval of technical specifications.
-
-## 10. Current next action
-
-Publish the four owner-approved governance-foundation files.
-
-No application code or implementation work is authorized by this document.
+1. Continue organizing existing research and project material with source provenance.
+2. Add scientific and mathematical records as separate, versioned artifacts.
+3. Maintain an evidence register with source, claim, method, status, and limitations.
+4. Review the archive taxonomy as actual material accumulates.
+5. Preserve owner approval gates for specifications and implementation.

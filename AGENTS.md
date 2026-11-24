@@ -1,133 +1,72 @@
 # AGENTS.md
 
-## 1. Purpose
+## 1. Purpose and authority
 
-This file defines the operating rules for AI assistants, agents, and human collaborators working in the Rolling Science repository.
+These rules protect scientific integrity, repository consistency, privacy, and project-owner authority. The project owner has final authority over project direction, approvals, specifications, repository changes, and releases. No agent may treat silence, unavailability, or another agent's opinion as owner approval.
 
-Its purpose is to protect scientific integrity, repository consistency, privacy, and project-owner authority.
+## 2. Evidence classification
 
-## 2. Authority
-
-The project owner has final authority over:
-
-- Project direction.
-- Approval or rejection of proposals.
-- Scientific and technical specifications.
-- Repository changes and releases.
-- Scope changes and exceptions.
-
-No AI agent or collaborator may interpret a suggestion, discussion, or another agent's opinion as owner approval.
-
-## 3. Evidence classification
-
-All substantive claims must be classified as appropriate:
+Classify substantive claims as appropriate:
 
 - **Documented:** supported by an identifiable source or verifiable observation.
-- **Inferred:** logically derived from available evidence.
+- **Inferred:** reasoned interpretation based on available evidence.
 - **Proposed:** suggested but not approved.
-- **Unavailable:** information that could not be accessed.
-- **Unsupported:** a claim lacking adequate evidence.
+- **Unavailable:** information could not be accessed or retrieved.
+- **Unsupported:** adequate evidence has not been provided.
 
-Do not present inferred or proposed statements as documented facts.
+Do not present inference or proposal as documented fact. Do not invent files, commits, tests, datasets, recordings, results, or repository states. Inaccessibility is not proof of non-existence.
 
-Do not invent files, commits, tests, datasets, recordings, results, or repository states.
+## 3. Preservation and archive rules
 
-Do not interpret inaccessible information as proof of non-existence.
+- Preserve original source documents as received whenever permission and safety allow.
+- Do not silently rewrite an original source while archiving it. Put normalized, translated, summarized, or annotated versions in separate files and link them to the source.
+- Record provenance: source title or sender, date received, version, location, language, and any transformation performed. Mark unknown fields as unknown.
+- Distinguish source material, working notes, review drafts, approved decisions, specifications, and implementation artifacts.
+- Do not upgrade a document's status merely because it is stored in the repository.
+- Record corrections as new versions or explicit change notes; retain the earlier state where practical.
+- Never archive credentials, private keys, passwords, access tokens, private personal data, or identifiable private audio.
+- Do not upload identifiable children's voices or private recordings to the public repository.
 
-## 4. Development stages
+## 4. Measurement and mathematical discipline
 
-The default project sequence is:
+- Record units, measurement procedures, instruments or software, sampling conditions, and uncertainty whenever applicable.
+- Distinguish raw observations from derived variables, transformations, and interpretations.
+- Preserve missingness, censoring, exclusions, and failed measurements; do not silently replace them with zero.
+- Keep gain/benefit, cost, loss, damage, and risk distinguishable unless a justified model explicitly relates them.
+- Do not collapse multidimensional outcomes into a single score without stating the assumptions, weights, trade-offs, and information lost.
+- Treat دفعية / دفع الضرر as a research direction under development, not as an already validated mathematical theory.
+- Preserve counterfactual assumptions, time horizon, affected parties, reversibility, distribution, and uncertainty when studying harm or loss.
+- Do not invent numerical estimates or progress percentages.
 
-1. Governance and knowledge foundation.
-2. Scientific and technical research.
-3. Independent evidence review.
-4. Scientific synthesis.
-5. Owner approval.
-6. Technical specification and acceptance criteria.
-7. Owner approval of specifications.
-8. Controlled implementation.
-9. Testing and review.
+## 5. Project development stages
 
-Skipping a stage requires explicit owner authorization.
+The default sequence is governance, research, independent evidence review, synthesis, owner approval, specification, owner approval of specification, controlled implementation, testing, and review. Skipping a stage requires explicit owner authorization.
 
-## 5. Alnatiq implementation restrictions
-
-For Alnatiq, no application implementation may begin before the owner approves:
-
-- `SCIENCECAPSULE_v0.1.md`
-- `ALNATIQ_SPEC_v0.1.md`
-- The applicable acceptance and privacy requirements.
-
-Before specification approval, repository inspection may be authorized separately.
-
-Repository inspection does not authorize:
-
-- Creating or modifying files.
-- Moving or deleting files.
-- Adding application code or dependencies.
-- Committing or pushing changes.
-- Opening a pull request.
-
-A separate, explicit authorization is required for any limited governance-only repository changes before application specifications are approved.
+For Alnatiq, no application implementation may begin before owner approval of the scientific capsule, technical specification, acceptance criteria, and privacy requirements. Repository organization and documentation work do not authorize application implementation.
 
 ## 6. Privacy and safety
 
-- Do not upload personal audio recordings or identifiable children's voices to the public repository.
-- Do not transmit private recordings to external services unless explicitly approved under a separately reviewed privacy design.
-- Do not include credentials, tokens, passwords, private keys, or personal identifiers in repository files.
-- Do not make diagnostic or clinical claims from audio recordings alone.
+- Do not infer anatomical causes or clinical diagnoses from audio recordings alone.
 - Do not publish unsupported accuracy, validity, or performance figures.
+- Do not transmit private recordings to external services without explicit approval under a reviewed privacy design.
+- Avoid personal identifiers in research records unless strictly necessary and lawfully authorized.
 
 ## 7. Repository change discipline
 
-Before making an authorized change:
+Before an authorized change: inspect actual state, identify affected paths, check decisions and conflicts, preserve existing work, and use a meaningful commit message. Prefer small, reversible, traceable changes. Never claim an operation succeeded unless its result was verified.
 
-1. Inspect the actual repository state.
-2. Identify the exact files affected.
-3. Check for conflicts with existing decisions.
-4. Describe the intended change and its scope.
-5. Preserve existing valid work.
-6. Avoid unnecessary dependencies and premature directory structures.
+## 8. Documentation structure
 
-For authorized changes, use a separate branch where appropriate, provide a meaningful commit message, and report exactly what changed.
-
-Never claim a change was completed unless the operation was actually performed and its result verified.
-
-## 8. Documentation discipline
-
+- Keep `README.md` as the public entry point.
 - Keep `IDEA_CAPSULE.md` concise and current.
-- Use `CONTEXT_STATE.md` for the current operational state, not as a transcript archive.
-- Use `README.md` to explain project identity, purpose, and status.
-- Use this file to define operating rules.
-- Record decisions with their actual approval status.
-- Do not silently overwrite or reinterpret previous decisions.
+- Keep `CONTEXT_STATE.md` operational, not a conversation transcript.
+- Use `ARCHIVE_INDEX.md` and the documentation hub to locate preserved material.
+- Keep project-specific documents under `docs/projects/<project>/`.
+- Keep methodological and mathematical research separate from project implementation.
+- A future `DECISIONS.md` may be added if the decision record grows.
 
-A future `DECISIONS.md` may be introduced if the decision record becomes too large for the current documentation structure.
+## 9. Collaboration and reporting
 
-## 9. Collaboration protocol
+Every handoff should identify task/capsule ID, sender, recipient, date/version where available, issue, evidence, unresolved questions, proposed versus approved decisions, required output, and scope restrictions.
 
-When handing work between agents or collaborators, identify:
-
-- Capsule or task ID.
-- Sender and recipient.
-- Date and version, when available.
-- Current issue.
-- Documented facts and sources.
-- Unresolved questions.
-- Proposed decision, clearly distinguished from approved decisions.
-- Required next output.
-- Scope restrictions.
-
-An agent's silence, unavailability, or failure to respond is not approval.
-
-## 10. Reporting
-
-Every task report should state:
-
-- What was actually done.
-- What evidence supports the result.
-- What remains incomplete.
-- What could not be verified.
-- Whether owner approval is required.
-
-Progress percentages must have a stated measurement basis. Do not confuse the completion of an agent's task with the completion of the entire project.
+Every report must state what was done, evidence for the result, what remains incomplete, what could not be verified, and whether owner approval is required. Distinguish station-task completion from project completion.
