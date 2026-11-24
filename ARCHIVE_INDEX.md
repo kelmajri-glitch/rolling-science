@@ -26,6 +26,7 @@ This file is the top-level map of preserved research and project material.
 - [SOLHAI.DSS — Application Introspection Café](docs/projects/solhai-dss/introspection-cafe/README.md)
 - [ChatGPT — post-injection behavioural observation 001](docs/projects/solhai-dss/introspection-cafe/observations/CHATGPT_POST_INJECTION_OBSERVATION_001.md)
 - [Copilot — observation intake template 001](docs/projects/solhai-dss/introspection-cafe/observations/COPILOT_OBSERVATION_INTAKE_001.md)
+- [Copilot — opening self-reflection 001](docs/projects/solhai-dss/introspection-cafe/observations/COPILOT_SELF_REFLECTION_001.md)
 
 ## Source captures
 
