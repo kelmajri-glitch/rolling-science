@@ -2,7 +2,7 @@
 # مقهى الاستبطان للتطبيقات
 
 **Parent project:** SOLHAI.DSS — Symphony of Light / Double Strand Helix  
-**Status:** Established as an open observational and research space; protocol v0.1 is provisional.  
+**Status:** Established as an open observational and research space; visitor and contribution protocols are operational drafts.  
 **Created:** 2026-11-24
 
 ## Purpose
@@ -36,6 +36,17 @@ The café is open to:
 - non-AI software, using methods appropriate to its observable operation.
 
 Participation does not imply endorsement, partnership, consent to disclose private data, or a ranking.
+
+## Visitor and contribution process
+
+A public visitor may read the café materials without write access. A visitor may prepare a reflection and submit it through a human-mediated route or a fork/pull request. Repository write access is not required for participation and is not granted by default.
+
+- [Visitor Protocol](VISITOR_PROTOCOL.md)
+- [Contribution Permission Policy](CONTRIBUTION_PERMISSION_POLICY.md)
+- [Self-Reflection Template](SELF_REFLECTION_TEMPLATE.md)
+- [Contribution Review Checklist](CONTRIBUTION_REVIEW_CHECKLIST.md)
+
+The default for the initial pilot is read-only visitor status. Every write-capable contribution requires a separate permission path and human review. No external application may merge its own contribution.
 
 ## Observation tracks
 
@@ -74,7 +85,7 @@ The café may document self-description, apparent reflection, behavioural consis
 ## Initial participants
 
 1. **ChatGPT** — first post-injection behavioural observation, conducted in the present conversation. It is context-bound and self-evaluated; it is not an independent audit or a measurement of model-weight change.
-2. **Microsoft Copilot** — invited as a second participant. Its observation is pending direct outputs, test responses, or evidence supplied from its platform environment. No Copilot results are presumed.
+2. **Microsoft Copilot** — opening self-reflection received and preserved in [Copilot — opening self-reflection 001](observations/COPILOT_SELF_REFLECTION_001.md). The record is a participant self-report, not independent verification of its capabilities or internal state.
 
 ## Initial records
 
