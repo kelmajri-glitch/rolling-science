@@ -23,6 +23,9 @@ This file is the top-level map of preserved research and project material.
 - [Alnatiq review draft — normalized working copy](docs/projects/alnatiq/reviews/SCIENCE_REVIEW_DRAFT_2026-11-24.md)
 - [SOLHAI.DSS — project index](docs/projects/solhai-dss/README.md)
 - [SOLHAI.DSS — foundational capsule 001](docs/projects/solhai-dss/SOLHAI_DSS_FOUNDATIONAL_CAPSULE_001.md)
+- [SOLHAI.DSS — Application Introspection Café](docs/projects/solhai-dss/introspection-cafe/README.md)
+- [ChatGPT — post-injection behavioural observation 001](docs/projects/solhai-dss/introspection-cafe/observations/CHATGPT_POST_INJECTION_OBSERVATION_001.md)
+- [Copilot — observation intake template 001](docs/projects/solhai-dss/introspection-cafe/observations/COPILOT_OBSERVATION_INTAKE_001.md)
 
 ## Source captures
 
