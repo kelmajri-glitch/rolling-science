@@ -12,6 +12,7 @@ This hub explains where material belongs. The repository is intended to become a
 | [Mathematics](mathematics/README.md) | Mathematical research programs | Definitions, candidate models, assumptions, counterexamples |
 | [Templates](templates/) | Reusable recording formats | Evidence and handoff templates |
 | [Operations](operations/) | Operational facts affecting work | Service availability, interruptions, verified events |
+| [Governance](../governance/README.md) | Authority, protocols, negotiations, and decision records | Working protocol drafts, open negotiations, owner decisions, change records |
 
 ## Archive logic
 
