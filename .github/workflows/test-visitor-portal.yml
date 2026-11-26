@@ -26,4 +26,6 @@ jobs:
       - name: Run visitor portal smoke tests
         run: python -m unittest discover -s tests -p 'test_visitor_portal.py' -v
       - name: Check portal JavaScript syntax
-        run: node --check portal/app.js
+        run: |
+          node --check portal/app.js
+          node --check portal/flow.js
