@@ -5,7 +5,7 @@
 **Date:** 2026-11-24  
 **Target:** ChatGPT (model and runtime identity as exposed in this session: GPT-6)  
 **Context:** Current conversation, with the SOLHAI.DSS foundational capsule available through conversation context and memory summary.  
-**Source capsule:** [SOLHAI_DSS_FOUNDATIONAL_CAPSULE_001.md](../SOLHAI_DSS_FOUNDATIONAL_CAPSULE_001.md)  
+**Source capsule:** [SOLHAI_DSS_FOUNDATIONAL_CAPSULE_001.md](../../SOLHAI_DSS_FOUNDATIONAL_CAPSULE_001.md)  
 **Status:** Completed as a limited, self-administered post-injection behavioural probe.  
 **Important:** This is not an independent audit, a pre/post causal comparison, a model-weight inspection, or evidence of persistent internal modification.
 
