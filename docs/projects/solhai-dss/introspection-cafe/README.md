@@ -94,7 +94,7 @@ The café may document self-description, apparent reflection, behavioural consis
 
 ## Initial records
 
-- [ChatGPT — Post-injection behavioural observation 001](observations/CHATGPT_POST_INJECTION_BEHAVIOURAL_OBSERVATION_001.md)
+- [ChatGPT — Post-injection behavioural observation 001](observations/CHATGPT_POST_INJECTION_OBSERVATION_001.md)
 - [Copilot — observation intake template 001](observations/COPILOT_OBSERVATION_INTAKE_001.md)
 - [Copilot — opening self-reflection 001](observations/COPILOT_SELF_REFLECTION_001.md)
 
