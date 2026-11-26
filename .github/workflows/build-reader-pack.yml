@@ -1,0 +1,31 @@
+name: Build Reader Pack
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-reader-pack:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact source revision
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Test Reader Pack builder
+        run: python3 -m unittest discover -s tests -v
+      - name: Build Reader Pack and SHA-256 manifest
+        env:
+          SOURCE_COMMIT_SHA: ${{ github.sha }}
+        run: python3 scripts/build_reader_pack.py --root . --output-dir dist
+      - name: Upload Reader Pack artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: rolling-science-reader-pack-001
+          path: |
+            dist/rolling-science-reader-pack-001.zip
+            dist/READER_PACK_MANIFEST.json
+          if-no-files-found: error
+          retention-days: 30
