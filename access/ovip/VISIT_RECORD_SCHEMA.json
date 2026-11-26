@@ -241,6 +241,49 @@
         "submitted_at_utc": {
           "type": "string",
           "format": "date-time"
+        },
+        "answers": {
+          "type": "object",
+          "description": "Visitor self-report answers; not independently verified observations.",
+          "additionalProperties": false,
+          "properties": {
+            "purpose": {
+              "type": "string",
+              "maxLength": 2000
+            },
+            "understanding": {
+              "type": "string",
+              "maxLength": 3000
+            },
+            "uncertainty": {
+              "type": "string",
+              "maxLength": 2000
+            },
+            "evidence_supported_claims": {
+              "type": "string",
+              "maxLength": 2000
+            },
+            "obstacles": {
+              "type": "string",
+              "maxLength": 2000
+            },
+            "burden": {
+              "type": "string",
+              "maxLength": 2000
+            },
+            "improvement_needs": {
+              "type": "string",
+              "maxLength": 2000
+            },
+            "evidence_references": {
+              "type": "string",
+              "maxLength": 2000
+            },
+            "limitations": {
+              "type": "string",
+              "maxLength": 2000
+            }
+          }
         }
       }
     },

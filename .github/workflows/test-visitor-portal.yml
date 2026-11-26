@@ -1,0 +1,29 @@
+name: Test OVIP Visitor Portal
+
+on:
+  pull_request:
+    paths:
+      - "portal/**"
+      - "access/ovip/VISIT_RECORD_SCHEMA.json"
+      - "tests/test_visitor_portal.py"
+      - ".github/workflows/test-visitor-portal.yml"
+      - ".github/workflows/deploy-ovip-portal.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run visitor portal smoke tests
+        run: python -m unittest discover -s tests -p 'test_visitor_portal.py' -v
+      - name: Check portal JavaScript syntax
+        run: node --check portal/app.js
