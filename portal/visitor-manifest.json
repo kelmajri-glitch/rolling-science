@@ -1,0 +1,31 @@
+{
+  "protocol_id": "RS-OVIP-001",
+  "portal_version": "0.1",
+  "portal_status": "prototype_not_deployed",
+  "repository": "https://github.com/kelmajri-glitch/rolling-science",
+  "default_ref": "main",
+  "visitor_types": [
+    "HUMAN",
+    "APPLICATION",
+    "MIXED_OR_MEDIATED",
+    "UNSPECIFIED"
+  ],
+  "capabilities": [
+    "public_repository_navigation",
+    "repository_branch_snapshot_lookup",
+    "local_introspection_form",
+    "json_visit_record_download"
+  ],
+  "data_collection": {
+    "server_submission": false,
+    "local_storage": false,
+    "cookies": false,
+    "analytics": false,
+    "account_required": false
+  },
+  "report_handling": "The visitor record is generated in the browser and downloaded locally. It is not transmitted to or stored by Rolling Science.",
+  "record_schema": "../access/ovip/VISIT_RECORD_SCHEMA.json",
+  "access_protocol": "../access/ACCESS_PROTOCOL.md",
+  "introspection_protocol": "../access/ovip/INTROSPECTION_PROTOCOL.md",
+  "privacy_policy": "../access/ovip/PRIVACY_AND_REVIEW.md"
+}
