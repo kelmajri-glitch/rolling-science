@@ -30,6 +30,9 @@ function optionalNumber(id) {
 function listIf(text, build) { return text ? [build(text)] : []; }
 function buildRecord() {
   const protocol = value("protocol");
+  const humanData = $("human-data").checked;
+  const consentStatus = humanData ? value("consent-status") : "NOT_APPLICABLE";
+  const privacyReview = humanData ? value("privacy-review") : "NOT_REQUIRED_FOR_SYNTHETIC";
   const task = {
     task_id: value("task-id"),
     task_type: value("task-type"),
@@ -98,8 +101,8 @@ function buildRecord() {
       burden_type: value("burden-type"), description, value: null, unit: null, measurement_method: null
     })),
     rights_privacy: {
-      human_data_present: false,
-      consent_status: "NOT_APPLICABLE",
+      human_data_present: humanData,
+      consent_status: consentStatus,
       permitted_uses: ["local experiment record management"],
       storage_and_retention: "Browser localStorage on this device; user-controlled export and deletion.",
       review_status: privacyReview
@@ -114,6 +117,8 @@ function buildRecord() {
 }
 function preflight(r) {
   const issues = [];
+  if (r.rights_privacy.human_data_present && r.rights_privacy.consent_status !== "GIVEN") issues.push("موافقة المشاركين غير موثقة");
+  if (r.rights_privacy.human_data_present && r.rights_privacy.review_status !== "APPROVED") issues.push("مراجعة الخصوصية/الأخلاقيات غير معتمدة");
   if (!/^RS-ALNATIQ-(B001|B002)-[A-Za-z0-9-]{3,64}$/.test(r.record_id)) issues.push("معرف السجل");
   if (!["RS-ALNATIQ-B001", "RS-ALNATIQ-B002"].includes(r.protocol_id)) issues.push("البروتوكول");
   if (!r.task.task_id || !r.task.procedure || !r.evidence.length || !r.evidence[0].claim || !r.limitations.length) issues.push("الحقول الإلزامية");
