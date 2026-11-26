@@ -34,7 +34,7 @@ Then visit `http://localhost:8000/portal/flow.html`.
 
 ## Local data handling
 
-The prototype uses browser `localStorage` only after the user creates or imports a workflow. Data remains in that browser profile unless the user exports or manually shares it. Clearing browser site data may erase locally stored workflows. Exported JSON files may contain project-sensitive material; store and share them deliberately.
+The prototype uses browser `localStorage` when the user creates or imports a workflow. Data remains in that browser profile unless the user exports or manually shares it. Clearing browser site data may erase locally stored workflows. Exported JSON files may contain project-sensitive material; store and share them deliberately.
 
 No external JavaScript libraries, analytics, cookies, or network calls are used by the workbench itself. The existing OVIP visitor portal remains separate.
 
