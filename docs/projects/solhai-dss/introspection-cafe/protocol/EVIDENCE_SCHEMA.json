@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AIC Evidence Entry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "evidence_id",
+    "claim_or_event",
+    "classification",
+    "capture_method"
+  ],
+  "properties": {
+    "evidence_id": {
+      "type": "string",
+      "pattern": "^E-[0-9]{3,}$"
+    },
+    "claim_or_event": {
+      "type": "string"
+    },
+    "classification": {
+      "enum": [
+        "OBSERVED",
+        "DOCUMENTED",
+        "SELF_REPORTED",
+        "INFERRED",
+        "PROPOSED",
+        "UNVERIFIED",
+        "UNAVAILABLE"
+      ]
+    },
+    "source_artifact": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_location": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "capture_method": {
+      "type": "string"
+    },
+    "integrity_identifier": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "GITHUB_BLOB_SHA",
+            "GIT_COMMIT_SHA",
+            "SHA256",
+            "PLATFORM_ARTIFACT_ID",
+            "OTHER"
+          ]
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "alternative_explanations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "captured_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    }
+  }
+}
