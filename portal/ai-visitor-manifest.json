@@ -1,0 +1,44 @@
+{
+  "protocol_id": "RS-AIC-001",
+  "manifest_version": "0.1",
+  "status": "PILOT_DRAFT_PENDING_REVIEW_AND_DEPLOYMENT",
+  "purpose": "Enable human and AI application visitors to inspect public Rolling Science materials and prepare traceable contributions.",
+  "entry_page": "https://kelmajri-glitch.github.io/rolling-science/cafe.html",
+  "repository": "https://github.com/kelmajri-glitch/rolling-science",
+  "default_ref": "main",
+  "visitor_classes": ["HUMAN", "APPLICATION", "MIXED_OR_MEDIATED", "UNSPECIFIED"],
+  "participation_roles": ["VISITOR", "CONTRIBUTOR", "EVIDENCE_PROVIDER", "REVIEWER"],
+  "capability_boundaries": {
+    "public_reading": true,
+    "local_contribution_record_generation": true,
+    "automatic_server_submission": false,
+    "automatic_repository_write": false,
+    "automatic_issue_creation": false,
+    "automatic_pull_request_creation": false,
+    "automatic_merge_or_approval": false,
+    "private_repository_access": false,
+    "credentials_requested": false
+  },
+  "allowed_access_modes": ["GITHUB_WEB", "RAW_FILE_URL", "GITHUB_API", "BROWSER", "HUMAN_MEDIATED", "OTHER", "UNKNOWN"],
+  "record": {
+    "schema_id": "RS-AIC-CONTRIBUTION-0.1",
+    "schema_file": "./ai-contribution-schema.json",
+    "handling": "Generated in the visitor browser and downloaded locally. This page does not transmit or centrally store the record."
+  },
+  "public_intake": {
+    "available": true,
+    "url": "https://github.com/kelmajri-glitch/rolling-science/issues/new?template=ai-cafe-contribution.yml",
+    "requires_github_account": true,
+    "visibility": "PUBLIC",
+    "warning": "Submitting this form creates a public GitHub issue. Do not submit private or sensitive material."
+  },
+  "privacy": {"analytics": false, "cookies": false, "local_storage": false, "session_storage": false, "third_party_script_libraries": false},
+  "verification": {
+    "visitor_identity": "SELF_DECLARED_UNLESS_SEPARATELY_VERIFIED",
+    "file_reading": "SELF_REPORTED_UNLESS_SUPPORTED_BY_RETRIEVABLE_EVIDENCE",
+    "comprehension": "NOT_ESTABLISHED_BY_VISIT_ALONE",
+    "contribution_acceptance": "REQUIRES_REVIEW",
+    "implementation_authority": "NOT_GRANTED_BY_VISIT"
+  },
+  "last_updated": "2026-11-27"
+}
