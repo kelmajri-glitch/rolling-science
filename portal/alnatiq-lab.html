@@ -35,7 +35,7 @@
         <select id="protocol" required><option value="RS-ALNATIQ-B001">B-001 · النطق إلى الحدس الرياضي</option><option value="RS-ALNATIQ-B002">B-002 · مختبر قدرات التطبيقات</option></select>
       </label>
       <label>حالة السجل
-        <select id="record-status"><option>DRAFT</option><option>PLANNED</option><option>RUN</option><option>REVIEWED</option><option>ACCEPTED</option><option>REJECTED</option></select>
+        <select id="record-status"><option>DRAFT</option><option>PLANNED</option><option>RUN</option><option>REVIEWED</option><option>REJECTED</option></select>
       </label>
       <label>اللغة
         <input id="language" maxlength="100" placeholder="مثال: العربية">
@@ -132,6 +132,18 @@
       <label>نوع العبء
         <select id="burden-type"><option value="TIME">وقت</option><option value="COMPUTE">حوسبة</option><option value="COST">تكلفة</option><option value="HUMAN_REVIEW">مراجعة بشرية</option><option value="COGNITIVE_LOAD">حمل معرفي</option><option value="ACCESS">إتاحة الوصول</option><option value="OTHER">أخرى</option></select>
       </label>
+      <div class="wide privacy-fields">
+        <label class="check"><input id="human-data" type="checkbox"> يتضمن هذا السجل بيانات بشرية أو تسجيلات أو أحكام مشاركين</label>
+        <div class="grid">
+          <label>حالة الموافقة من المشاركين
+            <select id="consent-status"><option value="NOT_APPLICABLE">لا ينطبق — بيانات اصطناعية فقط</option><option value="NOT_REQUESTED">لم تُطلب</option><option value="PENDING">قيد الانتظار</option><option value="GIVEN">ممنوحة وموثقة</option><option value="WITHDRAWN">مسحوبة</option><option value="UNKNOWN">غير معلومة</option></select>
+          </label>
+          <label>مراجعة الخصوصية / الأخلاقيات
+            <select id="privacy-review"><option value="NOT_REQUIRED_FOR_SYNTHETIC">غير مطلوبة — بيانات اصطناعية فقط</option><option value="PENDING">قيد المراجعة</option><option value="APPROVED">موافق عليها</option><option value="REJECTED">مرفوضة</option><option value="UNKNOWN">غير معلومة</option></select>
+          </label>
+        </div>
+        <p class="field-help">عند وجود بيانات بشرية، لن يسمح المختبر بحفظ السجل ما لم تكن الموافقة موثقة والمراجعة المطلوبة معتمدة. لا ترفع التسجيلات إلى هذه الواجهة.</p>
+      </div>
       <label class="wide">القيود وما لم يُنفذ
         <textarea id="limitations" required rows="3" maxlength="2400" placeholder="اذكر الاختبارات غير المنفذة، البيانات الناقصة، والقيود التي تمنع التعميم."></textarea>
       </label>
