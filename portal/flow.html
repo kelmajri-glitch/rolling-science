@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#102b3a">
+<meta name="description" content="OVIP Flow Workbench — local-first workflow capsules for people and AI applications.">
+<title>OVIP Flow Workbench 0.1 | تدفيق العلم</title>
+<link rel="stylesheet" href="./flow.css"><script defer src="./flow.js"></script>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="./index.html"><span class="mark">OV</span><span><b>OVIP Flow Workbench</b><small>تدفيق العلم · مساحة تشغيل محلية</small></span></a>
+  <nav><a href="./index.html">بوابة OVIP</a><a href="https://github.com/kelmajri-glitch/rolling-science" target="_blank" rel="noopener">المستودع ↗</a></nav>
+</header>
+<main>
+<section class="intro">
+  <p class="eyebrow">FLOW WORKBENCH · PROTOTYPE 0.1</p>
+  <h1>من نقل الرسائل إلى تدفيق العمل</h1>
+  <p>أنشئ دورة واحدة، جهّز حزم المحطات، استقبل المساهمات، وافحص ما أُنجز وما بقي. لا يحتاج هذا النموذج إلى خادم أو حساب.</p>
+  <div class="privacy"><b>الخصوصية أولاً:</b> تُحفظ الدورة في مساحة التخزين المحلية لهذا المتصفح بعد موافقتك. لا تُرسل تلقائياً إلى GitHub أو إلى أي محطة. استخدم التصدير والاستيراد لنقلها بنفسك، ولا تُدخل أسراراً أو بيانات شخصية حساسة.</div>
+</section>
+<section class="panel">
+  <div class="panel-head"><div><span class="step">01</span><h2>تأسيس دورة العمل</h2></div><span id="save-state" class="pill">لم تُنشأ دورة</span></div>
+  <form id="flow-form">
+    <div class="grid">
+      <label>عنوان الدورة<input id="flow-title" required maxlength="160" placeholder="مثال: تطوير حزمة تعليمية محلية"></label>
+      <label>البيئة المحلية<input id="flow-env" maxlength="120" placeholder="اسم البيئة أو المؤسسة (اختياري)"></label>
+      <label class="span">المشكلة أو الفرصة<textarea id="flow-problem" rows="3" required maxlength="4000" placeholder="صف المشكلة كما يحددها أصحاب المعرفة المحلية"></textarea></label>
+      <label class="span">النتيجة المرغوبة<textarea id="flow-goal" rows="2" maxlength="2500" placeholder="ما الذي تريد البيئة إنتاجه أو تغييره؟"></textarea></label>
+      <label class="span">القيود والموارد المعروفة<textarea id="flow-constraints" rows="2" maxlength="2500" placeholder="موارد، لغة، اتصال، وقت، تراخيص، قدرات..."></textarea></label>
+    </div>
+    <div class="actions"><button class="primary" type="submit">إنشاء / تحديث الدورة</button><button class="quiet" id="new-flow" type="button">دورة جديدة</button></div>
+  </form>
+</section>
+<section class="panel">
+  <div class="panel-head"><div><span class="step">02</span><h2>المحطات والمهام</h2></div><span class="hint">مهمة محددة لكل محطة</span></div>
+  <div class="grid">
+    <label>المحطة المستهدفة<select id="station"><option value="ChatGPT">ChatGPT — تنظيم ومراجعة</option><option value="DeepSeek">DeepSeek — بناء وإنتاج</option><option value="Copilot">Copilot — تجميع وفحص محلي</option><option value="Claude">Claude — مراجعة مستقلة</option><option value="Gemini">Gemini — حوكمة وحدود</option><option value="Perplexity">Perplexity — بحث ومصادر</option><option value="Local Human">مشارك بشري محلي</option><option value="Other">محطة أخرى</option></select></label>
+    <label>عنوان المهمة<input id="task-title" maxlength="160" placeholder="عنوان قصير وواضح"></label>
+    <label class="span">تعليمات المهمة<textarea id="task-instructions" rows="4" maxlength="5000" placeholder="ما المطلوب؟ ما شكل المخرج؟ ما الذي يجب عدم تغييره؟"></textarea></label>
+    <label class="span">المدخلات / المراجع<textarea id="task-inputs" rows="2" maxlength="3000" placeholder="روابط أو أسماء ملفات أو سياق ضروري فقط"></textarea></label>
+    <label class="span">معايير القبول<textarea id="task-acceptance" rows="2" maxlength="2500" placeholder="كيف سنعرف أن المهمة أنجزت؟"></textarea></label>
+  </div>
+  <div class="actions"><button class="primary" id="add-task" type="button">إضافة المهمة وتوليد الحزمة</button></div>
+  <div id="task-list" class="task-list empty">أنشئ دورة أولاً، ثم أضف مهام المحطات.</div>
+</section>
+<section class="panel">
+  <div class="panel-head"><div><span class="step">03</span><h2>استقبال مساهمة محطة</h2></div><span class="hint">كل نتيجة مرتبطة بمهمة</span></div>
+  <div class="grid">
+    <label>المهمة<select id="contrib-task"><option value="">لا توجد مهام بعد</option></select></label>
+    <label>نوع المساهمة<select id="contrib-kind"><option value="مخرج">مخرج / إجابة</option><option value="دليل">دليل أو مصدر</option><option value="اعتراض">اعتراض</option><option value="اقتراح">اقتراح</option><option value="نتيجة اختبار">نتيجة اختبار</option><option value="قيد">قيد أو تعذر</option></select></label>
+    <label>حالة الدليل<select id="evidence-kind"><option value="self_report">تصريح ذاتي من المحطة</option><option value="observed">حدث مرصود مباشرة</option><option value="tested">اختبار منفذ وموثق</option><option value="derived">استنتاج مبني على أدلة</option><option value="unverified">غير متحقق</option></select></label>
+    <label>مرجع أو رابط آمن<input id="contrib-ref" maxlength="500" placeholder="اختياري"></label>
+    <label class="span">نص المساهمة<textarea id="contrib-body" rows="5" required maxlength="20000" placeholder="الصق النتيجة هنا. لا تلصق مفاتيح وصول أو بيانات خاصة."></textarea></label>
+    <label class="span">القيود / ما لم يُنجز<textarea id="contrib-limits" rows="2" maxlength="3000"></textarea></label>
+  </div>
+  <div class="actions"><button class="primary" id="add-contribution" type="button">حفظ المساهمة</button></div>
+  <div id="contribution-list" class="contrib-list empty">ستظهر المساهمات هنا بعد استقبالها.</div>
+</section>
+<section class="panel">
+  <div class="panel-head"><div><span class="step">04</span><h2>بوابة القرار</h2></div><span class="hint">المقترح ليس قراراً</span></div>
+  <div class="grid">
+    <label class="span">القرار أو المسألة التي تحتاج اعتماداً<textarea id="decision-text" rows="3" maxlength="4000" placeholder="اكتب القرار المقترح أو المسألة المفتوحة"></textarea></label>
+    <label>الحالة<select id="decision-status"><option value="مقترح">مقترح</option><option value="قبول">قبول</option><option value="قبول جزئي">قبول جزئي</option><option value="تأجيل">تأجيل</option><option value="رفض">رفض</option><option value="طلب دليل إضافي">طلب دليل إضافي</option><option value="غير محسوم">غير محسوم</option></select></label>
+    <label>صاحب الاعتماد<input id="decision-owner" maxlength="120" placeholder="صاحب الصلاحية"></label>
+  </div>
+  <div class="actions"><button class="primary" id="save-decision" type="button">تسجيل القرار</button></div>
+  <div id="decision-list" class="decision-list empty">لا توجد قرارات مسجلة.</div>
+</section>
+<section class="panel">
+  <div class="panel-head"><div><span class="step">05</span><h2>مسارا القياس</h2></div><span class="hint">لا تختزل النفع والضرر في رقم واحد</span></div>
+  <div class="grid two">
+    <div class="measure"><h3>رياضيات الناتج والنفع</h3><label>الناتج أو التحسن المرصود<textarea id="benefit" rows="3" maxlength="3000"></textarea></label><label>الموارد والوقت المستخدم<textarea id="benefit-cost" rows="2" maxlength="2000"></textarea></label></div>
+    <div class="measure harm"><h3>رياضيات دفع الضرر</h3><label>ضرر جرى تخفيفه أو تجنبه<textarea id="harm-reduced" rows="3" maxlength="3000"></textarea></label><label>أعباء أو أضرار جديدة / منقولة<textarea id="harm-created" rows="2" maxlength="2000"></textarea></label></div>
+  </div>
+  <div class="actions"><button class="primary" id="save-measures" type="button">حفظ القياسات</button></div>
+</section>
+<section class="panel export">
+  <div class="panel-head"><div><span class="step">06</span><h2>الحفظ والنقل والاستئناف</h2></div><span class="hint">ملف مستقل قابل للاستنساخ</span></div>
+  <p class="small">صدّر الدورة كاملة إلى JSON قبل نقلها إلى جهاز أو بيئة أخرى. الاستيراد يضيف الدورة إلى السجل المحلي ولا يرسلها إلى أي جهة.</p>
+  <div class="actions"><button class="primary" id="export-flow" type="button">تصدير الدورة JSON</button><label class="file-button">استيراد دورة JSON<input id="import-flow" type="file" accept="application/json,.json"></label><button class="quiet" id="copy-context" type="button">نسخ ملخص الاستئناف</button></div>
+  <div class="actions"><button class="danger" id="delete-flow" type="button">حذف الدورة الحالية من هذا المتصفح</button></div>
+  <p id="status" class="status" role="status" aria-live="polite">لا توجد تغييرات بعد.</p>
+</section>
+<footer><span>OVIP Flow Workbench 0.1 · يعمل محلياً</span><span>لا تثق — لا تتهم — قِس</span></footer>
+</main>
+</body></html>
