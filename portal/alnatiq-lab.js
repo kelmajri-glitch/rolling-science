@@ -32,7 +32,7 @@ function buildRecord() {
   const protocol = value("protocol");
   const humanData = $("human-data").checked;
   const consentStatus = humanData ? value("consent-status") : "NOT_APPLICABLE";
-  const privacyReview = humanData ? value("privacy-review") : "NOT_REQUIRED_FOR_SYNTHETIC";
+  const privacyReview = humanData ? value("privacy-review") : "UNKNOWN";
   const task = {
     task_id: value("task-id"),
     task_type: value("task-type"),
