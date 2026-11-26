@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#102b3a">
+<meta name="description" content="مختبر محلي لتسجيل تجارب الناطق B-001 وB-002 وتصدير سجلاتها.">
+<title>مختبر تجارب الناطق | Rolling Science</title>
+<link rel="stylesheet" href="./alnatiq-lab.css">
+<script defer src="./alnatiq-lab.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="./index.html"><span class="mark">RS</span><span><b>Rolling Science</b><small>مختبر تجارب الناطق</small></span></a>
+  <nav><a href="./flow.html">مساحة تدفيق العمل</a><a href="https://github.com/kelmajri-glitch/rolling-science/tree/main/docs/projects/alnatiq/experiments" target="_blank" rel="noopener">مواصفات التجارب ↗</a></nav>
+</header>
+<main>
+<section class="hero">
+  <p class="eyebrow">ALNATIQ · B-001 / B-002 · LOCAL LAB 0.1</p>
+  <h1>سجّل التجربة، واحفظ الدليل وحدوده.</h1>
+  <p class="lead">مساحة محلية لإعداد سجلات تجارب النطق والرياضيات وقدرات التطبيقات. تُحفظ البيانات في هذا المتصفح فقط، ويمكن تصديرها يدوياً بصيغة JSON.</p>
+  <div class="notice"><b>حدود التشغيل:</b> هذه أداة تسجيل أولية وليست موافقة علمية أو أخلاقية. لا تسجل أصوات أشخاص أو بيانات طلاب أو مرضى. لا تضع معلومات سرية. صلاحية السجل البنيوية لا تثبت صحة الادعاء أو جودة التطبيق.</div>
+  <div class="stats" aria-live="polite">
+    <div><small>السجلات المحلية</small><strong id="count-all">0</strong></div>
+    <div><small>مسودات / مخططة</small><strong id="count-draft">0</strong></div>
+    <div><small>تحتاج مراجعة</small><strong id="count-review">0</strong></div>
+  </div>
+</section>
+
+<section class="panel" id="new-record">
+  <div class="section-head"><div><span class="eyebrow">01 · RECORD</span><h2>إنشاء سجل تجربة</h2></div><span class="pill">لا يوجد إرسال شبكي</span></div>
+  <form id="record-form">
+    <div class="grid">
+      <label>البروتوكول
+        <select id="protocol" required><option value="RS-ALNATIQ-B001">B-001 · النطق إلى الحدس الرياضي</option><option value="RS-ALNATIQ-B002">B-002 · مختبر قدرات التطبيقات</option></select>
+      </label>
+      <label>حالة السجل
+        <select id="record-status"><option>DRAFT</option><option>PLANNED</option><option>RUN</option><option>REVIEWED</option><option>ACCEPTED</option><option>REJECTED</option></select>
+      </label>
+      <label>اللغة
+        <input id="language" maxlength="100" placeholder="مثال: العربية">
+      </label>
+      <label>اللهجة / التنوع اللغوي
+        <input id="variety" maxlength="140" placeholder="وصف محدد؛ لا تفترض التطابق">
+      </label>
+      <label>وصف مصدر تحديد التنوع
+        <input id="variety-source" maxlength="240" placeholder="مثال: وصف فريق لغوي محلي">
+      </label>
+      <label>بيئة الاختبار
+        <input id="setting" maxlength="160" placeholder="مثال: اختبار اصطناعي مكتبي">
+      </label>
+      <label>التطبيق / المنتج
+        <input id="application" maxlength="140" placeholder="اتركه فارغاً إذا لم ينطبق">
+      </label>
+      <label>الإصدار / النموذج الظاهر
+        <input id="version" maxlength="140" placeholder="سجّل غير المتاح بدلاً من التخمين">
+      </label>
+      <label>نوع المهمة
+        <select id="task-type">
+          <option value="SPEECH_GENERATION">إنتاج النطق</option><option value="SPEECH_RECOGNITION">التعرف على النطق</option><option value="CONTRASTIVE_DISCRIMINATION">التمييز بين الأصوات</option><option value="LOCAL_VARIETY_HANDLING">التعامل مع التنوع المحلي</option><option value="CORRECTION_RESPONSE">الاستجابة للتصحيح</option><option value="GENERALIZATION">التعميم</option><option value="UNCERTAINTY_REPORTING">إعلان عدم اليقين</option><option value="RECIPROCITY_COMPARISON">مقارنة أنماط التعاون</option><option value="ANATOMY_REVIEW">مراجعة تشريحية</option><option value="ARTICULATION_REPRESENTATION">تمثيل حركة النطق</option><option value="ACOUSTIC_ANALYSIS">تحليل صوتي</option><option value="LEARNING_TASK">مهمة تعلم</option><option value="OTHER">أخرى</option>
+        </select>
+      </label>
+      <label>معرف المهمة / الاختبار
+        <input id="task-id" maxlength="100" required placeholder="مثال: T08-SYN-001">
+      </label>
+      <label class="wide">إجراء الاختبار أو وصف المهمة
+        <textarea id="procedure" required maxlength="3000" rows="3" placeholder="ما الذي نُفذ تحديداً؟ اكتب الإجراء لا الانطباع."></textarea>
+      </label>
+      <label class="wide">التعليمات / نص الطلب (إن وجد)
+        <textarea id="prompt" maxlength="3000" rows="2" placeholder="النص الحرفي أو ملخصه، مع حفظ النسخة المستخدمة."></textarea>
+      </label>
+      <label>نسخة معيار التقييم
+        <input id="rubric" maxlength="80" placeholder="مثال: rubric-0.1">
+      </label>
+      <label>هل العينة محجوبة عن مرحلة التصحيح؟
+        <select id="held-out"><option value="">غير محدد</option><option value="true">نعم</option><option value="false">لا</option></select>
+      </label>
+      <label>نوع التكيف المسجل
+        <select id="adaptation"><option value="NOT_ESTABLISHED">لم يثبت نوع التكيف</option><option value="CONTEXTUAL_ADAPTATION">تكيف سياقي</option><option value="CROSS_SESSION_BEHAVIOUR_CHANGE">تغير سلوك عبر الجلسات</option><option value="MODEL_UPDATE_CONFIRMED">تحديث نموذج مؤكد</option><option value="FINE_TUNING_CONFIRMED">ضبط دقيق مؤكد</option><option value="NOT_APPLICABLE">لا ينطبق</option></select>
+      </label>
+      <label>نتيجة المهمة
+        <select id="outcome"><option value="NOT_RUN">لم تُنفذ</option><option value="NOT_ASSESSABLE">غير قابلة للتقييم</option><option value="PASS">اجتياز وفق المعيار</option><option value="PARTIAL">جزئي</option><option value="FAIL">إخفاق وفق المعيار</option><option value="INCONCLUSIVE">غير حاسمة</option></select>
+      </label>
+      <label>البسط (إن وجد)
+        <input id="numerator" type="number" min="0" step="any" placeholder="عدد الحالات الصحيحة مثلاً">
+      </label>
+      <label>المقام (إن وجد)
+        <input id="denominator" type="number" min="0" step="any" placeholder="إجمالي الحالات المؤهلة">
+      </label>
+      <label>اسم المقياس
+        <input id="measure-name" maxlength="100" placeholder="مثال: نسبة التعرف الصحيح">
+      </label>
+      <label>قيمة المقياس
+        <input id="measure-value" type="number" step="any" placeholder="لا تدخل قيمة تخمينية">
+      </label>
+      <label>الوحدة
+        <input id="measure-unit" maxlength="60" placeholder="مثال: % أو ms">
+      </label>
+      <label>مرجع التقييم
+        <select id="reference-type"><option value="OTHER">أخرى / لم يحدد بعد</option><option value="LOCAL_HUMAN_PANEL">محكمون محليون</option><option value="LINGUISTIC_REFERENCE">مرجع لغوي</option><option value="ACOUSTIC_MEASUREMENT">قياس صوتي</option><option value="ANATOMICAL_REFERENCE">مرجع تشريحي</option><option value="INSTRUMENT">أداة قياس</option></select>
+      </label>
+      <label class="wide">وصف المرجع ومصدره
+        <textarea id="reference-description" rows="2" maxlength="1600" placeholder="من وضع معيار الحكم؟ وما مرجعه؟"></textarea>
+      </label>
+      <label class="wide">الادعاء أو الملاحظة والدليل
+        <textarea id="evidence-claim" required rows="3" maxlength="3000" placeholder="اكتب ادعاءً واحداً قابلاً للفحص أو ملاحظة محددة."></textarea>
+      </label>
+      <label>تصنيف الدليل
+        <select id="evidence-class"><option value="PROPOSED">مقترح</option><option value="OBSERVED">مرصود</option><option value="MEASURED">مقاس</option><option value="DOCUMENTED">موثق بمصدر</option><option value="MODELLED">ناتج عن نموذج</option><option value="SELF_REPORTED">تصريح ذاتي</option><option value="INFERRED">استنتاج</option><option value="UNVERIFIED">غير متحقق</option><option value="UNAVAILABLE">غير متاح</option></select>
+      </label>
+      <label>مرجع الدليل / رابطه
+        <input id="evidence-source" maxlength="500" placeholder="رابط عام أو معرف ملف؛ لا تضع رابطاً خاصاً">
+      </label>
+      <label class="wide">حدود الدليل
+        <textarea id="evidence-limit" rows="2" maxlength="1800" placeholder="ما الذي لا يثبته هذا الدليل؟"></textarea>
+      </label>
+      <label class="wide">النفع أو الفرصة (مستقل)
+        <textarea id="benefit" rows="2" maxlength="1600" placeholder="لا تسجل نفعاً مقاساً إذا كان مجرد احتمال."></textarea>
+      </label>
+      <label>حالة النفع
+        <select id="benefit-status"><option value="PROPOSED">مقترح</option><option value="OBSERVED">مرصود</option><option value="MEASURED">مقاس</option><option value="INFERRED">مستنتج</option></select>
+      </label>
+      <label class="wide">الضرر أو الخطر (مستقل)
+        <textarea id="harm" rows="2" maxlength="1600" placeholder="افصل الضرر المرصود عن الخطر المحتمل والاتهام غير المتحقق."></textarea>
+      </label>
+      <label>حالة الضرر
+        <select id="harm-status"><option value="PLAUSIBLE_RISK">خطر محتمل</option><option value="OBSERVED">ضرر مرصود</option><option value="INFERRED">مستنتج</option><option value="UNVERIFIED">غير متحقق</option></select>
+      </label>
+      <label class="wide">عبء أو مورد مستهلك (مستقل)
+        <textarea id="burden" rows="2" maxlength="1600" placeholder="وقت، تكلفة، حوسبة، مراجعة بشرية، حمل معرفي أو صعوبة وصول."></textarea>
+      </label>
+      <label>نوع العبء
+        <select id="burden-type"><option value="TIME">وقت</option><option value="COMPUTE">حوسبة</option><option value="COST">تكلفة</option><option value="HUMAN_REVIEW">مراجعة بشرية</option><option value="COGNITIVE_LOAD">حمل معرفي</option><option value="ACCESS">إتاحة الوصول</option><option value="OTHER">أخرى</option></select>
+      </label>
+      <label class="wide">القيود وما لم يُنفذ
+        <textarea id="limitations" required rows="3" maxlength="2400" placeholder="اذكر الاختبارات غير المنفذة، البيانات الناقصة، والقيود التي تمنع التعميم."></textarea>
+      </label>
+    </div>
+    <div class="actions"><button class="primary" type="submit">حفظ السجل محلياً</button><button class="secondary" id="reset-form" type="button">مسح النموذج</button></div>
+    <p class="status" id="form-status" role="status" aria-live="polite"></p>
+  </form>
+</section>
+
+<section class="panel">
+  <div class="section-head"><div><span class="eyebrow">02 · REVIEW</span><h2>السجلات المحفوظة</h2></div><div class="filters"><select id="filter-protocol" aria-label="تصفية البروتوكول"><option value="ALL">كل البروتوكولات</option><option value="RS-ALNATIQ-B001">B-001</option><option value="RS-ALNATIQ-B002">B-002</option></select><select id="filter-status" aria-label="تصفية الحالة"><option value="ALL">كل الحالات</option><option>DRAFT</option><option>PLANNED</option><option>RUN</option><option>REVIEWED</option><option>ACCEPTED</option><option>REJECTED</option></select></div></div>
+  <div id="record-list" class="record-list"><p class="empty">لا توجد سجلات بعد.</p></div>
+  <div class="actions export-actions"><button class="secondary" id="export-all" type="button">تصدير جميع السجلات JSON</button><button class="secondary" id="import-button" type="button">استيراد سجلات JSON</button><input id="import-file" type="file" accept=".json,application/json" hidden><button class="danger" id="delete-all" type="button">حذف السجلات المحلية</button></div>
+  <p class="status" id="data-status" role="status" aria-live="polite"></p>
+</section>
+<section class="footer-note"><b>قاعدة منهجية:</b> لا تجمع النفع والضرر والعبء في درجة واحدة. لا تعتبر «لم يُختبر» نجاحاً أو فشلاً. لا تعتبر التكيف داخل المحادثة تدريباً للنموذج.</section>
+</main>
+<footer>Rolling Science · Alnatiq Local Lab 0.1 · تخزين محلي دون إرسال تلقائي</footer>
+</body>
+</html>
