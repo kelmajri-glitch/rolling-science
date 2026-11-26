@@ -1,0 +1,167 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rolling-science.example/schemas/scce-field-record-0.1.schema.json",
+  "title": "SCCE Field Experiment Record",
+  "description": "A privacy-conscious record for reciprocal human-application field experiments. This schema does not itself establish consent or ethical approval.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_id",
+    "protocol_version",
+    "date",
+    "local_context",
+    "task",
+    "participants",
+    "consent",
+    "applications",
+    "conditions",
+    "evaluation",
+    "benefits",
+    "harms",
+    "burdens",
+    "side_discoveries",
+    "limitations",
+    "decision"
+  ],
+  "properties": {
+    "record_id": { "type": "string", "minLength": 1 },
+    "protocol_version": { "const": "0.1" },
+    "date": { "type": "string", "format": "date" },
+    "local_context": {
+      "type": "object",
+      "required": ["environment_label", "language_or_variety"],
+      "properties": {
+        "environment_label": { "type": "string" },
+        "language_or_variety": { "type": "string" },
+        "setting_description": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "task": {
+      "type": "object",
+      "required": ["task_id", "description", "locally_selected", "success_criteria"],
+      "properties": {
+        "task_id": { "type": "string" },
+        "description": { "type": "string" },
+        "locally_selected": { "type": "boolean" },
+        "selection_rationale": { "type": "string" },
+        "success_criteria": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+      },
+      "additionalProperties": false
+    },
+    "participants": {
+      "type": "object",
+      "required": ["count", "adult_only", "identifying_data_collected"],
+      "properties": {
+        "count": { "type": "integer", "minimum": 1 },
+        "adult_only": { "type": "boolean" },
+        "identifying_data_collected": { "type": "boolean" },
+        "participant_codes": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "consent": {
+      "type": "object",
+      "required": ["participation", "recording", "privacy_review"],
+      "properties": {
+        "participation": { "enum": ["GIVEN", "DECLINED", "WITHDRAWN", "NOT_OBTAINED"] },
+        "recording": { "enum": ["NOT_USED", "SEPARATELY_CONSENTED", "DECLINED", "NOT_APPLICABLE"] },
+        "privacy_review": { "enum": ["APPROVED", "CONDITIONAL", "NOT_REQUIRED_WITH_RATIONALE", "PENDING", "REJECTED"] },
+        "scope_and_retention_note": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "applications": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["name", "version_or_unknown", "access_mode"],
+        "properties": {
+          "name": { "type": "string" },
+          "version_or_unknown": { "type": "string" },
+          "access_mode": { "enum": ["WEB", "MOBILE", "DESKTOP", "LOCAL", "API", "OTHER"] },
+          "tools_enabled": { "type": "array", "items": { "type": "string" } },
+          "notes": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "conditions": {
+      "type": "object",
+      "required": ["instructions_preserved", "input_output_redacted", "connectivity"],
+      "properties": {
+        "instructions_preserved": { "type": "boolean" },
+        "input_output_redacted": { "type": "boolean" },
+        "connectivity": { "enum": ["ONLINE", "OFFLINE", "INTERMITTENT"] },
+        "device_or_resource_constraints": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "evaluation": {
+      "type": "object",
+      "required": ["human_skill", "application_performance", "collaboration_comparison"],
+      "properties": {
+        "human_skill": {
+          "type": "object",
+          "required": ["target_skill", "pre_task_done", "post_task_done", "transfer_task_done", "observations"],
+          "properties": {
+            "target_skill": { "type": "string" },
+            "pre_task_done": { "type": "boolean" },
+            "post_task_done": { "type": "boolean" },
+            "transfer_task_done": { "type": "boolean" },
+            "measurements": { "type": "array", "items": { "type": "object" } },
+            "observations": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "application_performance": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["application_name", "baseline_evaluated", "correction_applied", "new_sample_evaluated", "independent_reference"],
+            "properties": {
+              "application_name": { "type": "string" },
+              "baseline_evaluated": { "type": "boolean" },
+              "correction_applied": { "type": "boolean" },
+              "new_sample_evaluated": { "type": "boolean" },
+              "later_session_evaluated": { "type": "boolean" },
+              "independent_reference": { "type": "string" },
+              "result_summary": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "collaboration_comparison": {
+          "type": "object",
+          "required": ["conditions_compared", "comparison_summary"],
+          "properties": {
+            "conditions_compared": {
+              "type": "array",
+              "items": { "enum": ["HUMAN_ONLY", "APPLICATION_ASSISTED", "SYMBIOTIC", "PARALLEL_APPLICATIONS"] }
+            },
+            "comparison_summary": { "type": "string" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "benefits": { "type": "array", "items": { "type": "string" } },
+    "harms": { "type": "array", "items": { "type": "string" } },
+    "burdens": { "type": "array", "items": { "type": "string" } },
+    "side_discoveries": { "type": "array", "items": { "type": "string" } },
+    "limitations": { "type": "array", "items": { "type": "string" } },
+    "decision": {
+      "type": "object",
+      "required": ["outcome", "rationale", "approved_by_local_owner"],
+      "properties": {
+        "outcome": { "enum": ["REPEAT", "MODIFY", "STOP", "LIMITED_EXPANSION", "INCONCLUSIVE"] },
+        "rationale": { "type": "string" },
+        "approved_by_local_owner": { "type": "boolean" },
+        "next_review_date": { "type": "string", "format": "date" }
+      },
+      "additionalProperties": false
+    }
+  }
+}
