@@ -100,7 +100,6 @@ def main() -> None:
         "source": {
             "repository": "https://github.com/kelmajri-glitch/rolling-science",
             "commit_sha": source_commit,
-            "branch_context": os.environ.get("GITHUB_REF", "local-or-unspecified"),
         },
         "hash_algorithm": "SHA-256",
         "hash_scope": "Exact file bytes copied into this archive; not Git blob SHA.",
