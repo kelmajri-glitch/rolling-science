@@ -18,6 +18,14 @@ This index is a navigation aid. It is not proof that a reader or connector succe
 | 6 | `governance/records/DECISIONS.md` | Owner directions and unresolved matters | [Decision register](https://github.com/kelmajri-glitch/rolling-science/blob/main/governance/records/DECISIONS.md) |
 | 7 | `docs/projects/solhai-dss/introspection-cafe/README.md` | AIC purpose, principles, and existing records | [AIC home](https://github.com/kelmajri-glitch/rolling-science/blob/main/docs/projects/solhai-dss/introspection-cafe/README.md) |
 | 8 | `docs/projects/alnatiq/README.md` | Alnatiq project scope and evidence boundaries | [Alnatiq home](https://github.com/kelmajri-glitch/rolling-science/blob/main/docs/projects/alnatiq/README.md) |
+| 9 | `access/ovip/README.md` | Proposed open visit and introspection framework | [OVIP overview](https://github.com/kelmajri-glitch/rolling-science/blob/main/access/ovip/README.md) |
+
+## OVIP documents
+
+- [Visitor, visit, and session protocol](https://github.com/kelmajri-glitch/rolling-science/blob/main/access/ovip/PROTOCOL.md)
+- [Visit record JSON Schema](https://github.com/kelmajri-glitch/rolling-science/blob/main/access/ovip/VISIT_RECORD_SCHEMA.json)
+- [Introspection and evidence protocol](https://github.com/kelmajri-glitch/rolling-science/blob/main/access/ovip/INTROSPECTION_PROTOCOL.md)
+- [Privacy, review, and publication](https://github.com/kelmajri-glitch/rolling-science/blob/main/access/ovip/PRIVACY_AND_REVIEW.md)
 
 ## AIC records to inspect when relevant
 
