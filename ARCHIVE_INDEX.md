@@ -1,6 +1,6 @@
 # Archive Index
 
-This file is the top-level map of preserved research and project material.
+This file is the top-level map of preserved research, project, and governance material.
 
 ## Repository foundation
 
@@ -28,6 +28,11 @@ This file is the top-level map of preserved research and project material.
 - [Copilot — observation intake template 001](docs/projects/solhai-dss/introspection-cafe/observations/COPILOT_OBSERVATION_INTAKE_001.md)
 - [Copilot — opening self-reflection 001](docs/projects/solhai-dss/introspection-cafe/observations/COPILOT_SELF_REFLECTION_001.md)
 
+## Governance
+
+- [Governance documentation hub](governance/README.md) — protocol drafts, open negotiations, decision register, change records, and crosswalk.
+- [Owner decisions and unresolved matters](governance/records/DECISIONS.md) — owner directions, their status, and matters still open.
+
 ## Source captures
 
 - [Owner-provided Alnatiq review draft — source capture, 2026-11-24](archive/source-captures/2026-11-24/ALNATIQ_SCIENCE_REVIEW_DRAFT_OWNER_TEXT.md)
@@ -35,6 +40,7 @@ This file is the top-level map of preserved research and project material.
 ## Operations
 
 - [Resource availability log](docs/operations/RESOURCE_AVAILABILITY_LOG.md)
+- [Repository reconciliation — 2026-11-26](docs/operations/REPOSITORY_RECONCILIATION_2026-11-26.md)
 
 ## Mathematical research capsules
 
