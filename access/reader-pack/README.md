@@ -8,11 +8,11 @@ This directory contains the reproducible builder for the first Rolling Science R
 python3 scripts/build_reader_pack.py --root . --output-dir dist
 ```
 
-The builder uses only the Python standard library. It copies a fixed allowlist of public project/governance documents byte-for-byte, records SHA-256 for each included file, records missing allowlisted files as omitted, and creates a ZIP plus a sidecar manifest.
+The builder uses only the Python standard library. It copies a fixed allowlist of public project/governance documents byte-for-byte, records SHA-256 for each included file, records missing allowlisted files as omitted, and creates a ZIP plus a sidecar manifest. Manifest and ZIP entry timestamps derive from the pinned source commit, so repeated builds of the same commit under the same Python/zlib runtime are intended to produce identical ZIP bytes. Allowlisted symlinks and paths escaping the repository root are rejected.
 
 ## Build on GitHub
 
-Use the **Actions → Build Reader Pack → Run workflow** control on the intended source revision. The workflow has read-only repository permissions and publishes the ZIP and manifest as a workflow artifact for 30 days.
+Use the **Actions → Build Reader Pack → Run workflow** control on the intended source revision. The workflow first runs the standard-library unit tests in `tests/`, then builds and uploads the ZIP and manifest. The workflow has read-only repository permissions and publishes the ZIP and manifest as a workflow artifact for 30 days.
 
 ## Integrity and limits
 
