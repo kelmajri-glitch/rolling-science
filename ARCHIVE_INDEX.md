@@ -28,6 +28,12 @@ This file is the top-level map of preserved research, project, and governance ma
 - [Copilot — observation intake template 001](docs/projects/solhai-dss/introspection-cafe/observations/COPILOT_OBSERVATION_INTAKE_001.md)
 - [Copilot — opening self-reflection 001](docs/projects/solhai-dss/introspection-cafe/observations/COPILOT_SELF_REFLECTION_001.md)
 
+## Access and application introspection
+
+- [Read-only access protocol](access/ACCESS_PROTOCOL.md) — platform-independent access and provenance rules.
+- [Reader index](access/READER_INDEX.md) — curated reading path for participating applications.
+- [AIC Reader & Recorder v0.1](docs/projects/solhai-dss/introspection-cafe/protocol/AIC_READER_RECORDER_SPEC_V0.1.md) — proposed session and evidence workflow.
+
 ## Governance
 
 - [Governance documentation hub](governance/README.md) — protocol drafts, open negotiations, decision register, change records, and crosswalk.
