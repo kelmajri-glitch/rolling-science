@@ -64,9 +64,17 @@ def main() -> None:
         if rel.is_absolute() or ".." in rel.parts:
             raise ValueError(f"Unsafe allowlist path: {relative}")
         source = root.joinpath(*rel.parts)
-        if not source.is_file():
+        if not source.exists():
             omitted.append({"path": relative, "reason": "NOT_PRESENT_AT_SOURCE_COMMIT"})
             continue
+        if source.is_symlink():
+            raise ValueError(f"Refusing symlink in allowlist: {relative}")
+        if not source.is_file():
+            omitted.append({"path": relative, "reason": "NOT_A_REGULAR_FILE"})
+            continue
+        resolved = source.resolve()
+        if root not in resolved.parents:
+            raise ValueError(f"Allowlist path escapes repository root: {relative}")
         data = source.read_bytes()
         payloads.append((relative, data))
         included.append({
@@ -79,7 +87,12 @@ def main() -> None:
         raise RuntimeError("Reader Pack is empty; refusing to create an empty archive.")
 
     source_commit = git_commit(root)
-    created = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+    # Derive timestamps from the source commit so rebuilds are byte-reproducible.
+    commit_time = subprocess.check_output(
+        ["git", "show", "-s", "--format=%cI", source_commit], cwd=root, text=True
+    ).strip()
+    created = datetime.fromisoformat(commit_time.replace("Z", "+00:00")).astimezone(timezone.utc).replace(microsecond=0).isoformat()
+    zip_datetime = datetime.fromisoformat(created).timetuple()[:6]
     manifest = {
         "manifest_version": "1.0",
         "pack_id": "ROLLING-SCIENCE-READER-PACK-001",
@@ -114,9 +127,15 @@ def main() -> None:
     pack_name = "rolling-science-reader-pack-001"
     zip_path = output_dir / f"{pack_name}.zip"
     with zipfile.ZipFile(zip_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
-        archive.writestr(f"{pack_name}/READER_PACK_MANIFEST.json", manifest_bytes)
+        manifest_info = zipfile.ZipInfo(f"{pack_name}/READER_PACK_MANIFEST.json", date_time=zip_datetime)
+        manifest_info.compress_type = zipfile.ZIP_DEFLATED
+        manifest_info.external_attr = 0o100644 << 16
+        archive.writestr(manifest_info, manifest_bytes)
         for relative, data in payloads:
-            archive.writestr(f"{pack_name}/{relative}", data)
+            info = zipfile.ZipInfo(f"{pack_name}/{relative}", date_time=zip_datetime)
+            info.compress_type = zipfile.ZIP_DEFLATED
+            info.external_attr = 0o100644 << 16
+            archive.writestr(info, data)
 
     sidecar = output_dir / "READER_PACK_MANIFEST.json"
     sidecar.write_bytes(manifest_bytes)
