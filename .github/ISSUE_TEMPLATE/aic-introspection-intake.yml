@@ -1,0 +1,97 @@
+name: AIC introspection session submission
+description: Submit a session record for review; submission does not imply acceptance or archival.
+title: "[AIC INTAKE] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Submit only material you are authorized to share publicly. Do not include passwords, access tokens, private conversations, identifiable learner/patient data, or private recordings. This form creates an incoming review item; it does not approve the report or modify the canonical record.
+  - type: input
+    id: session_id
+    attributes:
+      label: AIC session ID
+      description: Example AIC-PERPLEXITY-ACCESS-001
+      placeholder: AIC-STATION-TASK-001
+    validations:
+      required: true
+  - type: input
+    id: station
+    attributes:
+      label: Participant / station
+    validations:
+      required: true
+  - type: input
+    id: session_datetime
+    attributes:
+      label: Session date and time
+      description: ISO 8601 with timezone, if known
+    validations:
+      required: true
+  - type: input
+    id: task_id
+    attributes:
+      label: Invitation or task ID
+    validations:
+      required: true
+  - type: dropdown
+    id: access_mode
+    attributes:
+      label: Access mode
+      options:
+        - GITHUB_CONNECTOR
+        - GITHUB_WEB
+        - RAW_FILE_URL
+        - GITHUB_API
+        - OFFLINE_READER_PACK
+        - HUMAN_MEDIATED_ATTACHMENT
+        - OTHER
+    validations:
+      required: true
+  - type: input
+    id: source_commit
+    attributes:
+      label: Source commit SHA
+      description: Enter the immutable commit used, or state NOT_AVAILABLE.
+    validations:
+      required: true
+  - type: textarea
+    id: file_matrix
+    attributes:
+      label: File access matrix
+      description: List each path and mark READ_FULL, READ_PARTIAL, NOT_READ, or NOT_REQUESTED.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: findings
+    attributes:
+      label: Findings and probe results
+      description: Separate direct observations, self-reports, documented facts, and inferences.
+      render: markdown
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence references
+      description: Link safe artifacts or cite file paths and exact locations. Do not paste confidential content.
+      render: markdown
+    validations:
+      required: true
+  - type: textarea
+    id: limitations
+    attributes:
+      label: Limitations, failures, and unknowns
+      render: markdown
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy and authorization
+      options:
+        - label: I confirm this submission contains no credentials, private tokens, or private identifiable recordings/data.
+          required: true
+        - label: I am authorized to submit the attached or linked material for public review.
+          required: true

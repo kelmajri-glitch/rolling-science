@@ -1,0 +1,28 @@
+{
+  "manifest_version": "0.1",
+  "pack_id": "RS-READER-PACK-YYYYMMDD-001",
+  "repository": "kelmajri-glitch/rolling-science",
+  "source_ref": "main",
+  "source_commit_sha": "REPLACE_WITH_IMMUTABLE_COMMIT_SHA",
+  "generated_at_utc": "YYYY-MM-DDTHH:MM:SSZ",
+  "generator": "RECORD_TOOL_AND_VERSION_IF_KNOWN",
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "REPLACE_WITH_SHA256_OF_EXACT_INCLUDED_BYTES",
+      "status": "INCLUDED",
+      "transformation": "NONE"
+    }
+  ],
+  "omitted_paths": [
+    {
+      "path": "PATH",
+      "reason": "NOT_IN_SCOPE_OR_UNAVAILABLE"
+    }
+  ],
+  "integrity_note": "SHA-256 values must be computed from the exact bytes included in this pack. Do not copy Git blob SHAs into this field.",
+  "privacy_review": {
+    "performed": false,
+    "notes": "Complete before distribution."
+  }
+}

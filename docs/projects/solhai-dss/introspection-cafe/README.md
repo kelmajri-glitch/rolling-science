@@ -27,6 +27,22 @@ Every record must keep these separate:
 
 A self-report is not independent verification. An observed output does not establish hidden internal states or subjective experience.
 
+## Reader and Recorder v0.1
+
+The proposed, vendor-independent reader and recorder specification is documented in [AIC Reader & Recorder v0.1](protocol/AIC_READER_RECORDER_SPEC_V0.1.md).
+
+Supporting materials:
+- [Read-only access protocol](../../../../access/ACCESS_PROTOCOL.md)
+- [Reader index](../../../../access/READER_INDEX.md)
+- [Reader Pack manifest template](../../../../access/READER_PACK_MANIFEST.template.json)
+- [Session record template](protocol/SESSION_RECORD_TEMPLATE.md)
+- [Evidence log template](protocol/EVIDENCE_LOG_TEMPLATE.md)
+- [Session JSON schema](protocol/SESSION_SCHEMA.json)
+- [Evidence JSON schema](protocol/EVIDENCE_SCHEMA.json)
+- [GitHub intake form](../../../../.github/ISSUE_TEMPLATE/aic-introspection-intake.yml)
+
+These materials are proposed on a review branch. They do not yet constitute an owner-approved release or an operationally validated service. The intake route is a human-mediated submission path; no report is automatically accepted into the archive.
+
 ## Participation
 
 The café is open to:
