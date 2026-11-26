@@ -1,0 +1,335 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kelmajri-glitch/rolling-science/blob/main/access/ovip/VISIT_RECORD_SCHEMA.json",
+  "title": "Rolling Science OVIP Visit Record",
+  "description": "Proposed v0.1 schema. A data contract only; it does not authorize collection, storage, or publication.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "visit_id",
+    "visitor",
+    "environment",
+    "visit_status",
+    "created_at_utc",
+    "privacy"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "visit_id": {
+      "type": "string",
+      "pattern": "^RS-VISIT-[A-Za-z0-9-]{4,64}$"
+    },
+    "visitor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "visitor_type",
+        "identity_status"
+      ],
+      "properties": {
+        "visitor_type": {
+          "enum": [
+            "HUMAN",
+            "APPLICATION",
+            "MIXED_OR_MEDIATED",
+            "UNSPECIFIED"
+          ]
+        },
+        "identity_status": {
+          "enum": [
+            "ANONYMOUS",
+            "SELF_DECLARED",
+            "VERIFIED",
+            "PSEUDONYMOUS",
+            "UNKNOWN"
+          ]
+        },
+        "display_label": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "declared_product_or_model": {
+          "type": "string",
+          "maxLength": 160
+        },
+        "declared_version": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "identity_verification_reference": {
+          "type": "string",
+          "maxLength": 500
+        }
+      }
+    },
+    "environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "environment_id"
+      ],
+      "properties": {
+        "environment_id": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "repository_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "branch_or_ref": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "commit_sha": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{40}$"
+        },
+        "release_id": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "index_version": {
+          "type": "string",
+          "maxLength": 40
+        },
+        "retrieved_at_utc": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "access": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "access_modes": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "GITHUB_CONNECTOR",
+              "GITHUB_WEB",
+              "RAW_FILE_URL",
+              "GITHUB_API",
+              "OFFLINE_READER_PACK",
+              "HUMAN_MEDIATED_ATTACHMENT",
+              "BROWSER",
+              "OTHER"
+            ]
+          }
+        },
+        "package_delivery_status": {
+          "enum": [
+            "NOT_APPLICABLE",
+            "REQUESTED",
+            "RECEIVED",
+            "NOT_RECEIVED",
+            "PARTIAL",
+            "UNKNOWN"
+          ]
+        },
+        "files": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "path",
+              "status"
+            ],
+            "properties": {
+              "path": {
+                "type": "string",
+                "maxLength": 500
+              },
+              "status": {
+                "enum": [
+                  "READ_FULL",
+                  "READ_PARTIAL",
+                  "NOT_READ",
+                  "NOT_REQUESTED"
+                ]
+              },
+              "blob_sha": {
+                "type": "string",
+                "maxLength": 64
+              },
+              "content_sha256": {
+                "type": "string",
+                "pattern": "^[a-fA-F0-9]{64}$"
+              },
+              "evidence_reference": {
+                "type": "string",
+                "maxLength": 500
+              },
+              "error_code": {
+                "type": "string",
+                "maxLength": 100
+              }
+            }
+          }
+        }
+      }
+    },
+    "session_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "maxLength": 100
+      }
+    },
+    "comprehension": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": [
+            "NOT_TESTED",
+            "TESTED",
+            "PARTIALLY_SUPPORTED",
+            "NOT_SUPPORTED_BY_TEST",
+            "UNAVAILABLE"
+          ]
+        },
+        "test_id": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "test_version": {
+          "type": "string",
+          "maxLength": 60
+        },
+        "result_reference": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 500
+          }
+        }
+      }
+    },
+    "introspection": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": [
+            "NOT_OFFERED",
+            "NOT_STARTED",
+            "DRAFTED",
+            "SUBMITTED",
+            "WITHDRAWN"
+          ]
+        },
+        "report_id": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "report_version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "submitted_at_utc": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "visit_status": {
+      "enum": [
+        "STARTED",
+        "ACCESS_ATTEMPTED",
+        "READING_IN_PROGRESS",
+        "INTROSPECTION_DRAFTED",
+        "REPORT_SUBMITTED",
+        "COMPLETED",
+        "INCOMPLETE",
+        "ABANDONED",
+        "WITHDRAWN"
+      ]
+    },
+    "completion_basis": {
+      "type": "string",
+      "maxLength": 300
+    },
+    "created_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "submission_consent",
+        "visibility"
+      ],
+      "properties": {
+        "submission_consent": {
+          "enum": [
+            "NOT_GIVEN",
+            "GIVEN",
+            "WITHDRAWN",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "visibility": {
+          "enum": [
+            "PRIVATE_TO_SUBMITTER",
+            "REVIEW_TEAM_ONLY",
+            "PUBLIC_AFTER_APPROVAL",
+            "PUBLIC_APPROVED"
+          ]
+        },
+        "publication_consent": {
+          "enum": [
+            "NOT_REQUESTED",
+            "NOT_GIVEN",
+            "GIVEN",
+            "WITHDRAWN"
+          ]
+        },
+        "retention_policy_id": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "deletion_request_status": {
+          "enum": [
+            "NOT_REQUESTED",
+            "REQUESTED",
+            "IN_PROGRESS",
+            "COMPLETED",
+            "NOT_APPLICABLE"
+          ]
+        }
+      }
+    },
+    "evidence_references": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "maxLength": 500
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 1000
+      }
+    }
+  }
+}
