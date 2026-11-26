@@ -20,6 +20,13 @@ This index is a navigation aid. It is not proof that a reader or connector succe
 | 8 | `docs/projects/alnatiq/README.md` | Alnatiq project scope and evidence boundaries | [Alnatiq home](https://github.com/kelmajri-glitch/rolling-science/blob/main/docs/projects/alnatiq/README.md) |
 | 9 | `access/ovip/README.md` | Proposed open visit and introspection framework | [OVIP overview](https://github.com/kelmajri-glitch/rolling-science/blob/main/access/ovip/README.md) |
 
+## Visitor portal prototype
+
+- [Portal source and operating notes](https://github.com/kelmajri-glitch/rolling-science/tree/main/portal)
+- [Machine-readable visitor manifest](https://github.com/kelmajri-glitch/rolling-science/blob/main/portal/visitor-manifest.json)
+
+The source prototype is not deployed as a public website. Its report generator downloads a local JSON file and does not submit it to the repository.
+
 ## OVIP documents
 
 - [Visitor, visit, and session protocol](https://github.com/kelmajri-glitch/rolling-science/blob/main/access/ovip/PROTOCOL.md)
