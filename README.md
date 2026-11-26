@@ -32,6 +32,10 @@ Its purpose is not to force every subject into one theory or one score. It is to
 
 Rolling Science may host multiple independent but linkable research directions. Alnatiq (الناطق) is one current educational project connecting functional anatomy and physiology of speech production with acoustic signals and learning. Its status and boundaries are documented in [the Alnatiq project area](docs/projects/alnatiq/README.md).
 
+## Visitor access and introspection
+
+The repository includes a source prototype for the [OVIP visitor portal](portal/README.md). It provides public reading navigation and local-only introspection record generation; it is not yet deployed as a public website and does not collect or upload visitor reports.
+
 ## Governance and development
 
 The default sequence is:
