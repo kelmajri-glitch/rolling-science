@@ -64,11 +64,11 @@ def main() -> None:
         if rel.is_absolute() or ".." in rel.parts:
             raise ValueError(f"Unsafe allowlist path: {relative}")
         source = root.joinpath(*rel.parts)
+        if source.is_symlink():
+            raise ValueError(f"Refusing symlink in allowlist: {relative}")
         if not source.exists():
             omitted.append({"path": relative, "reason": "NOT_PRESENT_AT_SOURCE_COMMIT"})
             continue
-        if source.is_symlink():
-            raise ValueError(f"Refusing symlink in allowlist: {relative}")
         if not source.is_file():
             omitted.append({"path": relative, "reason": "NOT_A_REGULAR_FILE"})
             continue
