@@ -72,17 +72,6 @@
     "environment": {
       "type": "object",
       "properties": {
-        "access_mode": {
-          "enum": [
-            "GITHUB_CONNECTOR",
-            "GITHUB_WEB",
-            "RAW_FILE_URL",
-            "GITHUB_API",
-            "OFFLINE_READER_PACK",
-            "HUMAN_MEDIATED_ATTACHMENT",
-            "OTHER"
-          ]
-        },
         "tool_version": {
           "type": [
             "string",
@@ -270,6 +259,17 @@
         "APPROVED",
         "NOT_REQUIRED",
         "REJECTED"
+      ]
+    },
+    "access_mode": {
+      "enum": [
+        "GITHUB_CONNECTOR",
+        "GITHUB_WEB",
+        "RAW_FILE_URL",
+        "GITHUB_API",
+        "OFFLINE_READER_PACK",
+        "HUMAN_MEDIATED_ATTACHMENT",
+        "OTHER"
       ]
     }
   }
