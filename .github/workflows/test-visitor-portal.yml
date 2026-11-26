@@ -7,6 +7,7 @@ on:
       - "access/ovip/VISIT_RECORD_SCHEMA.json"
       - "tests/test_visitor_portal.py"
       - ".github/workflows/test-visitor-portal.yml"
+      - ".github/workflows/deploy-ovip-portal.yml"
   workflow_dispatch:
 
 permissions:
