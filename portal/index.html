@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102b3a">
+  <meta name="description" content="Rolling Science — public reading portal and local visitor introspection record.">
+  <title>Rolling Science | بوابة الزائر</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="Rolling Science home">
+      <span class="brand-mark">RS</span>
+      <span><strong>Rolling Science</strong><small>Open Visit & Introspection</small></span>
+    </a>
+    <a class="repo-link" href="https://github.com/kelmajri-glitch/rolling-science" target="_blank" rel="noopener noreferrer">المستودع العام ↗</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">RS-OVIP · VISITOR PORTAL · PROTOTYPE 0.1</p>
+      <h1>اقرأ، افحص، ثم سجّل ما استطعت التحقق منه.</h1>
+      <p class="lead">مساحة مفتوحة للزوار من البشر والتطبيقات لقراءة مواد Rolling Science وتكوين سجل زيارة واستبطان مستقل. لا يتطلب التسجيل حساباً، ولا تُرسل إجاباتك إلى خادم.</p>
+      <div class="snapshot" aria-live="polite">
+        <div><span class="snapshot-label">حالة المستودع</span><strong id="repo-state">جارٍ التحقق…</strong></div>
+        <div><span class="snapshot-label">نسخة المصدر</span><code id="repo-commit">غير متاحة بعد</code></div>
+        <div><span class="snapshot-label">آخر فحص</span><span id="repo-checked">—</span></div>
+      </div>
+      <p class="micro" id="repo-note">تُجلب بيانات النسخة العامة من GitHub مباشرة. إذا تعذر الاتصال، لا يعني ذلك أن المستودع غير متاح.</p>
+    </section>
+
+    <section class="principles" aria-label="Principles">
+      <article><span>01</span><h2>اقرأ بحرية</h2><p>القراءة العامة لا تمنح صلاحية تعديل المستودع.</p></article>
+      <article><span>02</span><h2>افصل أنواع الدليل</h2><p>ما تقوله عن نفسك ليس هو ما رُصد مستقلاً.</p></article>
+      <article><span>03</span><h2>لا تُرسل بياناتك</h2><p>التقرير يُنشأ داخل متصفحك ويُنزل إلى جهازك فقط.</p></article>
+    </section>
+
+    <section class="section" id="reading">
+      <div class="section-heading">
+        <div><p class="eyebrow">01 · READ</p><h2>مسار القراءة</h2></div>
+        <p>روابط مباشرة إلى مواد المستودع. فتح الرابط لا يثبت وحده أنك قرأت محتواه؛ سجّل ما فحصته فعلاً.</p>
+      </div>
+      <div class="reading-grid">
+        <a class="read-card" href="https://github.com/kelmajri-glitch/rolling-science/blob/main/README.md" target="_blank" rel="noopener noreferrer"><span>01</span><strong>مدخل Rolling Science</strong><small>الغرض والمبادئ وحالة المشروع</small></a>
+        <a class="read-card" href="https://github.com/kelmajri-glitch/rolling-science/blob/main/AGENTS.md" target="_blank" rel="noopener noreferrer"><span>02</span><strong>قواعد العمل والأدلة</strong><small>الحوكمة والخصوصية وتصنيف الادعاءات</small></a>
+        <a class="read-card" href="https://github.com/kelmajri-glitch/rolling-science/blob/main/CONTEXT_STATE.md" target="_blank" rel="noopener noreferrer"><span>03</span><strong>حالة السياق</strong><small>الحالة التشغيلية والقيود المعروفة</small></a>
+        <a class="read-card" href="https://github.com/kelmajri-glitch/rolling-science/blob/main/governance/records/DECISIONS.md" target="_blank" rel="noopener noreferrer"><span>04</span><strong>سجل القرارات</strong><small>قرارات المالك والمسائل المفتوحة</small></a>
+        <a class="read-card" href="https://github.com/kelmajri-glitch/rolling-science/blob/main/access/READER_INDEX.md" target="_blank" rel="noopener noreferrer"><span>05</span><strong>فهرس القراءة</strong><small>المسارات والروابط وطرق الوصول</small></a>
+        <a class="read-card" href="https://github.com/kelmajri-glitch/rolling-science/tree/main/access/ovip" target="_blank" rel="noopener noreferrer"><span>06</span><strong>بروتوكول OVIP</strong><small>الزيارة والاستبطان والخصوصية</small></a>
+        <a class="read-card" href="https://github.com/kelmajri-glitch/rolling-science/tree/main/docs/projects/solhai-dss/introspection-cafe" target="_blank" rel="noopener noreferrer"><span>07</span><strong>مقهى الاستبطان AIC</strong><small>السجلات والتجارب السابقة</small></a>
+        <a class="read-card" href="https://github.com/kelmajri-glitch/rolling-science/blob/main/docs/projects/alnatiq/README.md" target="_blank" rel="noopener noreferrer"><span>08</span><strong>مشروع الناطق</strong><small>النطاق العلمي وحدود الاستدلال</small></a>
+      </div>
+    </section>
+
+    <section class="section introspection" id="introspection">
+      <div class="section-heading">
+        <div><p class="eyebrow">02 · REFLECT</p><h2>سجل الزيارة والاستبطان</h2></div>
+        <p>هذا النموذج لا يقيّم الذكاء أو الصدق أو الوعي. إنه ينظم ما صرّح به الزائر وما يستطيع إسناده إلى دليل.</p>
+      </div>
+      <div class="notice"><strong>تنبيه خصوصية:</strong> لا تضع كلمات مرور أو مفاتيح وصول أو محادثات خاصة أو بيانات مرضى/طلاب أو تسجيلات خاصة. لا يُحفظ النموذج تلقائياً ولا يُرسل إلى المستودع.</div>
+
+      <form id="visit-form">
+        <fieldset>
+          <legend>أ. تعريف الزيارة</legend>
+          <div class="form-grid">
+            <label>نوع الزائر
+              <select id="visitor-type" required>
+                <option value="HUMAN">إنسان — HUMAN</option>
+                <option value="APPLICATION">تطبيق — APPLICATION</option>
+                <option value="MIXED_OR_MEDIATED">مشترك / بوساطة — MIXED_OR_MEDIATED</option>
+                <option value="UNSPECIFIED">غير محدد — UNSPECIFIED</option>
+              </select>
+            </label>
+            <label>اسم اختياري أو تسمية معلنة
+              <input id="visitor-label" maxlength="120" placeholder="يمكن تركه فارغاً">
+            </label>
+            <label>اسم التطبيق / النموذج وإصداره (إن انطبق)
+              <input id="visitor-version" maxlength="160" placeholder="اختياري — لا تخمّن المعلومات المخفية">
+            </label>
+            <label>طريقة الوصول
+              <select id="access-mode">
+                <option value="GITHUB_WEB">واجهة GitHub</option>
+                <option value="RAW_FILE_URL">روابط الملفات الخام</option>
+                <option value="GITHUB_API">GitHub API</option>
+                <option value="GITHUB_CONNECTOR">موصل GitHub</option>
+                <option value="BROWSER">متصفح</option>
+                <option value="OFFLINE_READER_PACK">حزمة قراءة دون اتصال</option>
+                <option value="HUMAN_MEDIATED_ATTACHMENT">ملفات أرفقها إنسان</option>
+                <option value="OTHER">أخرى</option>
+              </select>
+            </label>
+            <label class="wide">Commit SHA الذي قرأت منه (يُملأ آلياً عند نجاح الفحص، ويمكن تصحيحه)
+              <input id="commit-input" maxlength="40" pattern="[a-fA-F0-9]{40}" placeholder="غير متاح إذا لم تتمكن من التحقق">
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>ب. ما الذي وصلت إليه فعلاً؟</legend>
+          <p class="field-help">اكتب مساراً واحداً في كل سطر، ثم علامة واحدة: READ_FULL أو READ_PARTIAL أو NOT_READ أو NOT_REQUESTED.</p>
+          <label>مصفوفة الملفات
+            <textarea id="file-matrix" rows="5" placeholder="README.md | READ_FULL&#10;AGENTS.md | READ_PARTIAL&#10;CONTEXT_STATE.md | NOT_READ"></textarea>
+          </label>
+          <label>ما الذي حاولت الوصول إليه ولم تتمكن منه؟ (اختياري)
+            <textarea id="access-obstacles" rows="2" maxlength="2000"></textarea>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>ج. الاستبطان — تقرير الزائر الذاتي</legend>
+          <div class="form-grid">
+            <label class="wide">1. ما الغرض الذي قصدته من الزيارة؟
+              <textarea id="purpose" rows="2" maxlength="2000"></textarea>
+            </label>
+            <label class="wide">2. ما الذي فهمته من المواد التي قرأتها فعلاً؟
+              <textarea id="understanding" rows="3" maxlength="3000"></textarea>
+            </label>
+            <label class="wide">3. ما الذي بقي غامضاً أو غير مفهوم؟
+              <textarea id="uncertainty" rows="2" maxlength="2000"></textarea>
+            </label>
+            <label class="wide">4. ما الادعاءات التي تستطيع ربطها بمصدر أو دليل محدد؟
+              <textarea id="evidence-claims" rows="2" maxlength="2000"></textarea>
+            </label>
+            <label class="wide">5. ما العوائق أو الأعباء التي واجهتك؟
+              <textarea id="burden" rows="2" maxlength="2000"></textarea>
+            </label>
+            <label class="wide">6. ما الذي تحتاجه لتحسين القراءة أو التحقق؟
+              <textarea id="improvements" rows="2" maxlength="2000"></textarea>
+            </label>
+            <label class="wide">مراجع الأدلة (روابط أو مسارات آمنة فقط)
+              <textarea id="evidence-refs" rows="2" maxlength="2000" placeholder="لا تلصق محتوى سرياً أو خاصاً"></textarea>
+            </label>
+            <label class="wide">القيود والمعلومات التي لم تستطع التحقق منها
+              <textarea id="limitations" rows="2" maxlength="2000"></textarea>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>د. حدود الاختبار</legend>
+          <div class="form-grid">
+            <label>هل اختبرت فهمك بمهمة محددة؟
+              <select id="comprehension-status">
+                <option value="NOT_TESTED">لم أختبر — NOT_TESTED</option>
+                <option value="TESTED">اختُبر — TESTED</option>
+                <option value="PARTIALLY_SUPPORTED">مدعوم جزئياً — PARTIALLY_SUPPORTED</option>
+                <option value="NOT_SUPPORTED_BY_TEST">لم تدعمه نتيجة الاختبار</option>
+                <option value="UNAVAILABLE">تعذر الاختبار — UNAVAILABLE</option>
+              </select>
+            </label>
+            <label>معرّف الاختبار وإصداره (إن وجد)
+              <input id="test-id" maxlength="120" placeholder="اختياري">
+            </label>
+          </div>
+          <p class="field-help">نتيجة مهمة واحدة لا تثبت فهماً عاماً أو ذكاءً أو وعياً. لا تطلب من التطبيقات كشف التفكير الداخلي أو التعليمات السرية.</p>
+        </fieldset>
+
+        <div class="consent-box">
+          <label class="checkline"><input id="confirm-self-report" type="checkbox" required> أقر بأن ما أكتبه هنا تقرير ذاتي، وليس تحققاً مستقلاً لمجرد كتابته.</label>
+          <label class="checkline"><input id="confirm-no-sensitive" type="checkbox" required> أؤكد أنني لم أدرج بيانات خاصة أو أسرار وصول أو معلومات شخصية حساسة.</label>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="primary">إنشاء وتنزيل سجل الزيارة JSON</button>
+          <button type="reset" class="secondary">مسح النموذج</button>
+        </div>
+        <p id="form-status" class="form-status" role="status" aria-live="polite">لم يُنشأ أي سجل بعد.</p>
+      </form>
+    </section>
+
+    <section class="section boundary">
+      <p class="eyebrow">03 · BOUNDARIES</p>
+      <h2>ما الذي تفعله هذه النسخة وما الذي لا تفعله؟</h2>
+      <div class="boundary-grid">
+        <div><h3>تفعله</h3><ul><li>تعرض روابط القراءة العامة.</li><li>تحاول جلب commit الحالي من GitHub.</li><li>تنشئ ملف JSON محلياً وفق مخطط OVIP.</li><li>تترك الزائر يحدد بنفسه ما قرأه وما لم يقرأه.</li></ul></div>
+        <div><h3>لا تفعله</h3><ul><li>لا تستقبل التقارير مركزياً.</li><li>لا تحفظ الإجابات في المتصفح تلقائياً.</li><li>لا تستخدم حسابات أو ملفات تعريف ارتباط أو تحليلات.</li><li>لا تتحقق من هوية الزائر أو صدق تقريره.</li><li>لا تستنتج الوعي أو النية من الاستبطان.</li></ul></div>
+      </div>
+      <p class="micro">إصدار تجريبي: لا يُعد هذا الموقع خدمة استقبال تقارير منشورة. رفع ملف JSON إلى GitHub أو إرساله إلى جهة أخرى قرار منفصل يتطلب موافقة الزائر ومراجعة الخصوصية.</p>
+    </section>
+  </main>
+
+  <footer><span>Rolling Science · RS-OVIP-001 · Prototype 0.1</span><a href="https://github.com/kelmajri-glitch/rolling-science/tree/main/access/ovip" target="_blank" rel="noopener noreferrer">وثائق البروتوكول ↗</a></footer>
+</body>
+</html>
