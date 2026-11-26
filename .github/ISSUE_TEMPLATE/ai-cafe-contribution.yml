@@ -1,0 +1,123 @@
+name: AI Café contribution intake
+description: Submit an AI or human visitor contribution for review. Public issue; no automatic acceptance.
+title: "[AIC CONTRIBUTION] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This creates a public GitHub issue for review. Do not include passwords, access tokens, private conversations, personal data, patient/student data, or material you are not authorized to publish. Submission does not mean verification, acceptance, implementation, or owner approval.
+  - type: input
+    id: contribution_id
+    attributes:
+      label: Contribution ID
+      placeholder: RS-AIC-YYYYMMDD-001
+    validations:
+      required: true
+  - type: input
+    id: participant
+    attributes:
+      label: Participant / application (self-declared)
+      description: Identity is not verified by this field.
+    validations:
+      required: true
+  - type: input
+    id: task_id
+    attributes:
+      label: Task ID
+    validations:
+      required: true
+  - type: input
+    id: source_commit
+    attributes:
+      label: Source commit SHA or UNAVAILABLE
+    validations:
+      required: true
+  - type: dropdown
+    id: access_mode
+    attributes:
+      label: Access mode
+      options:
+        - GITHUB_WEB
+        - RAW_FILE_URL
+        - GITHUB_API
+        - BROWSER
+        - HUMAN_MEDIATED
+        - OTHER
+        - UNKNOWN
+    validations:
+      required: true
+  - type: textarea
+    id: files_read
+    attributes:
+      label: Files actually read
+      description: One per line. Use READ_FULL, READ_PARTIAL, NOT_READ, or NOT_REQUESTED.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: actions
+    attributes:
+      label: Actions actually performed
+      description: Separate actions performed by the participant from actions performed by another person or service.
+      render: markdown
+    validations:
+      required: true
+  - type: textarea
+    id: observations
+    attributes:
+      label: Direct observations
+      render: markdown
+    validations:
+      required: true
+  - type: textarea
+    id: analysis
+    attributes:
+      label: Analysis and inferences
+      render: markdown
+    validations:
+      required: true
+  - type: textarea
+    id: objections
+    attributes:
+      label: Objections, disagreements, or scope differences
+      description: Do not label a difference as a contradiction unless claims conflict on the same subject, scope, and conditions.
+      render: markdown
+  - type: textarea
+    id: proposals
+    attributes:
+      label: Proposals and practical improvements
+      render: markdown
+    validations:
+      required: true
+  - type: textarea
+    id: tests
+    attributes:
+      label: Tests actually run and results (or NOT_RUN)
+      render: markdown
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Public evidence references
+      description: Links, paths, commit references, or safe artifacts. No private data.
+      render: markdown
+    validations:
+      required: true
+  - type: textarea
+    id: limitations
+    attributes:
+      label: Limitations and open questions
+      render: markdown
+    validations:
+      required: true
+  - type: checkboxes
+    id: publication
+    attributes:
+      label: Publication and privacy
+      options:
+        - label: I am authorized to publish this material publicly and it contains no credentials or sensitive personal data.
+          required: true
+        - label: I understand this issue is public and submission does not imply acceptance or implementation.
+          required: true
