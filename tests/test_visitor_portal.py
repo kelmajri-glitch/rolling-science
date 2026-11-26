@@ -26,6 +26,8 @@ class VisitorPortalSmokeTests(unittest.TestCase):
         self.assertEqual(schema["properties"]["schema_version"]["const"], "0.1")
         introspection = schema["properties"]["introspection"]["properties"]
         self.assertIn("answers", introspection)
+        self.assertTrue(introspection["answers"]["additionalProperties"] is False)
+        self.assertIn("purpose", introspection["answers"]["properties"])
 
     def test_portal_has_no_submission_endpoint_or_browser_storage(self):
         js = (PORTAL / "app.js").read_text(encoding="utf-8")
