@@ -14,7 +14,9 @@ This hub explains where material belongs. The repository is intended to become a
 | [Operations](operations/) | Operational facts affecting work | Service availability, interruptions, verified events |
 | [Governance](../governance/README.md) | Authority, protocols, negotiations, and decision records | Working protocol drafts, open negotiations, owner decisions, change records |
 
-| [Access and AIC](../access/README.md) | Read-only access and application introspection | Reader index, provenance rules, session/evidence records, review intake |\n\n## Archive logic
+| [Access and AIC](../access/README.md) | Read-only access and application introspection | Reader index, provenance rules, session/evidence records, review intake |
+
+## Archive logic
 
 1. Preserve received material in its original form where feasible.
 2. Put summaries, translations, analyses, and normalized data in separate files.
