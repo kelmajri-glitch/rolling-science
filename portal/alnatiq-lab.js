@@ -102,7 +102,7 @@ function buildRecord() {
       consent_status: "NOT_APPLICABLE",
       permitted_uses: ["local experiment record management"],
       storage_and_retention: "Browser localStorage on this device; user-controlled export and deletion.",
-      review_status: "NOT_REQUIRED_FOR_SYNTHETIC"
+      review_status: privacyReview
     },
     limitations: value("limitations").split(/\n+/).map(x => x.trim()).filter(Boolean),
     side_discoveries: [],
