@@ -63,7 +63,7 @@ Before an authorized change: inspect actual state, identify affected paths, chec
 - Use `ARCHIVE_INDEX.md` and the documentation hub to locate preserved material.
 - Keep project-specific documents under `docs/projects/<project>/`.
 - Keep methodological and mathematical research separate from project implementation.
-- A future `DECISIONS.md` may be added if the decision record grows.
+- The governance decision register currently exists at `governance/records/DECISIONS.md`; maintain it as the record of owner directions and unresolved matters. Do not describe it as a future file.
 
 ## 9. Collaboration and reporting
 
