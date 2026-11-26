@@ -40,6 +40,10 @@ Then open `http://localhost:8000/portal/` from the repository root.
 - The browser may contact GitHub API for public repository metadata. GitHub's own service terms and logs apply to that request.
 - Downloaded records remain under the visitor's control.
 
+## Optional GitHub Pages deployment
+
+A manual deployment workflow is provided at `.github/workflows/deploy-ovip-portal.yml`. It is intentionally triggered only through `workflow_dispatch`; merging this PR does not automatically publish the portal. Before running it, a repository administrator must set **Settings → Pages → Build and deployment → Source → GitHub Actions**. Then run the workflow from the Actions tab and verify the resulting Pages URL. The workflow publishes only the contents of this `portal/` directory. No report intake or database is deployed.
+
 ## Not implemented
 
 - Central report intake or storage.
