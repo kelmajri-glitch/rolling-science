@@ -24,6 +24,7 @@ Its purpose is not to force every subject into one theory or one score. It is to
 - [Projects](docs/projects/README.md) — project-specific material, beginning with Alnatiq.
 - [Methodology](docs/methodology/README.md) — provenance, measurement, uncertainty, and reproducibility.
 - [Mathematical research](docs/mathematics/README.md) — a working area for studying gain, loss, damage, and دفعية / دفع الضرر without premature formalization.
+- [Governance hub](governance/README.md) — protocol drafts, open negotiations, owner decisions, and change records.
 - [Archive index](ARCHIVE_INDEX.md) — dated archive map and preservation rules.
 - [Evidence record template](docs/templates/EVIDENCE_RECORD_TEMPLATE.md) — repeatable evidence capture.
 
