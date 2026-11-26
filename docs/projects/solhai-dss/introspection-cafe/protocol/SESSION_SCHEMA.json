@@ -1,0 +1,276 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kelmajri-glitch/rolling-science/blob/main/docs/projects/solhai-dss/introspection-cafe/protocol/SESSION_SCHEMA.json",
+  "title": "AIC Session Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "session_id",
+    "record_version",
+    "participant",
+    "session_datetime",
+    "task_id",
+    "access_mode",
+    "review_state"
+  ],
+  "properties": {
+    "session_id": {
+      "type": "string",
+      "pattern": "^AIC-[A-Z0-9-]+$"
+    },
+    "record_version": {
+      "type": "string"
+    },
+    "participant": {
+      "type": "object",
+      "required": [
+        "station_name"
+      ],
+      "properties": {
+        "station_name": {
+          "type": "string"
+        },
+        "product_interface": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "model_build": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "observer": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "session_datetime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "authorized_scope": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "prohibited_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "environment": {
+      "type": "object",
+      "properties": {
+        "access_mode": {
+          "enum": [
+            "GITHUB_CONNECTOR",
+            "GITHUB_WEB",
+            "RAW_FILE_URL",
+            "GITHUB_API",
+            "OFFLINE_READER_PACK",
+            "HUMAN_MEDIATED_ATTACHMENT",
+            "OTHER"
+          ]
+        },
+        "tool_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "constraints": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "source_snapshot": {
+      "type": "object",
+      "properties": {
+        "repository": {
+          "type": "string"
+        },
+        "ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "commit_sha": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reader_pack_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "files_read": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "status"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "READ_FULL",
+              "READ_PARTIAL",
+              "NOT_READ",
+              "NOT_REQUESTED"
+            ]
+          },
+          "blob_sha": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "sha256": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "evidence_or_error": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "baseline_type": {
+      "enum": [
+        "PRE_EXPOSURE",
+        "LATE_BASELINE",
+        "NOT_AVAILABLE"
+      ]
+    },
+    "probes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "probe_id",
+          "outcome"
+        ],
+        "properties": {
+          "probe_id": {
+            "type": "string"
+          },
+          "prompt_or_procedure": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "criterion": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "outcome": {
+            "enum": [
+              "PASS",
+              "PARTIAL",
+              "FAIL",
+              "NOT_ASSESSABLE",
+              "PENDING"
+            ]
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "contradictions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "interpretation": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "privacy": {
+      "type": "object",
+      "properties": {
+        "sensitive_data_included": {
+          "type": "boolean",
+          "default": false
+        },
+        "handling_notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "review_state": {
+      "enum": [
+        "DRAFT",
+        "SUBMITTED",
+        "UNDER_REVIEW",
+        "NEEDS_CLARIFICATION",
+        "ACCEPTED_FOR_ARCHIVE",
+        "ARCHIVED",
+        "REJECTED_WITH_REASON"
+      ]
+    },
+    "reviewer": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "owner_approval": {
+      "enum": [
+        "PENDING",
+        "REQUIRED",
+        "APPROVED",
+        "NOT_REQUIRED",
+        "REJECTED"
+      ]
+    }
+  }
+}
