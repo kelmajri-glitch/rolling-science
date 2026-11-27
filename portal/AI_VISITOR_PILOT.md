@@ -78,3 +78,16 @@ A successful visit does not prove general understanding, model reliability, or p
 ## Deployment note
 
 The existing OVIP deployment workflow is manually dispatched. This draft must be reviewed and merged, then the portal must be deployed and its public URL checked before the first visit is invited. A GitHub Pages workflow run is not, by itself, evidence that the deployed page is reachable from Meta AI's environment.
+
+## First forwarded visitor contribution — 2026-11-27
+
+A contribution attributed to **Meta AI - Muse Spark** was received through the project owner. It is archived in two forms:
+
+- Original payload as received: [source record](./contributions/source/RS-AIC-META-MUSE-SPARK-2026-11-27-as-received.json)
+- Normalized record using `RS-AIC-CONTRIBUTION-0.1`: [normalized record](./contributions/normalized/RS-AIC-META-MUSE-SPARK-2026-11-27.json)
+
+**Evidence classification:** mediated screenshot description supplied by the owner; not direct browsing by the visitor. The screenshot binary was not attached to the archived contribution and has not been independently inspected in this record. The visitor's own statement says it did not browse the URL directly, interact with the page controls, download a contribution record, or modify the repository.
+
+The contribution contains three proposals: make the first visitor steps more visible; consider an optional masculine direct-address sentence without hard-coding personal identity as the default; and display a clearly labeled pilot/visit date. These are **pending owner review**, not accepted requirements or implemented changes.
+
+No user test, browser interaction test, or independent identity verification is claimed. See [contribution archive and rules](./contributions/README.md).
