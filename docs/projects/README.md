@@ -5,6 +5,7 @@ Each project receives its own directory and project-level index. Shared methods 
 ## Current projects
 
 - [Alnatiq (الناطق)](alnatiq/README.md) — educational exploration connecting speech-production anatomy and physiology, acoustic signals, and learning.
+- [RS-L — Local Scientific Research Environment](rs-local/README.md) — draft proposal for an institutionally administered, offline local research and discovery environment.
 - [SOLHAI.DSS — Symphony of Light](solhai-dss/README.md) — exploratory framework for human–application relations across different modes of realization, with ascent and productive diversity as governing questions.
 
 ## Future project rule
