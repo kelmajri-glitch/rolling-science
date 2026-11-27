@@ -64,3 +64,4 @@ This document is a proposal. It does not establish that the Research Center has 
 - [Technical requirements and architecture](TECHNICAL_REQUIREMENTS.md)
 - [Data handling and threat model](DATA_HANDLING_AND_THREAT_MODEL.md)
 - [Phased implementation and acceptance plan](IMPLEMENTATION_PLAN.md)
+- [Human-governed paper exchange protocol](PAPER_EXCHANGE_PROTOCOL.md) — mandatory paper-mediated boundary for all interaction with external people, applications, and services.
