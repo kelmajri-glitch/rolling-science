@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kelmajri-glitch/rolling-science/blob/main/portal/ai-contribution-schema.json",
+  "title": "Rolling Science AI Café Contribution Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["record_schema","contribution_id","task_id","participant","source_references","visit","contribution","evidence_status","privacy","limitations"],
+  "properties": {
+    "record_schema": {"const":"RS-AIC-CONTRIBUTION-0.1"},
+    "contribution_id": {"type":"string","minLength":8,"maxLength":120},
+    "task_id": {"type":"string","maxLength":120},
+    "participant": {
+      "type":"object","additionalProperties":false,
+      "required":["declared_label","identity_status","declared_product_or_model"],
+      "properties":{
+        "declared_label":{"type":"string","maxLength":120},
+        "identity_status":{"enum":["ANONYMOUS","SELF_DECLARED","VERIFIED","UNKNOWN"]},
+        "declared_product_or_model":{"type":"string","maxLength":160}
+      }
+    },
+    "source_references":{
+      "type":"array","items":{
+        "type":"object","additionalProperties":false,
+        "required":["repository","branch_or_ref","commit_sha","source_role","verification_status"],
+        "properties":{
+          "repository":{"type":"string","format":"uri"},
+          "branch_or_ref":{"type":"string","maxLength":200},
+          "commit_sha":{"type":"string","maxLength":64},
+          "source_role":{"enum":["visited_environment","original_contribution","secondary_description","review_record"]},
+          "verification_status":{"enum":["INDEPENDENTLY_CONFIRMED","SELF_REPORTED","NOT_AVAILABLE","NOT_VERIFIED"]}
+        }
+      }
+    },
+    "visit":{
+      "type":"object","additionalProperties":false,
+      "required":["access_mode","record_created_at_utc","files_read","actions_performed","inaccessible_items"],
+      "properties":{
+        "access_mode":{"enum":["GITHUB_WEB","RAW_FILE_URL","GITHUB_API","BROWSER","HUMAN_MEDIATED","OTHER","UNKNOWN"]},
+        "visit_time_local":{"type":"string","maxLength":80},
+        "record_created_at_utc":{"type":"string","format":"date-time"},
+        "files_read":{"type":"array","items":{"type":"object","additionalProperties":false,"required":["path","status"],"properties":{"path":{"type":"string","maxLength":500},"status":{"enum":["READ_FULL","READ_PARTIAL","NOT_READ","NOT_REQUESTED"]}}}},
+        "actions_performed":{"type":"string","maxLength":5000},
+        "inaccessible_items":{"type":"string","maxLength":3000}
+      }
+    },
+    "contribution":{
+      "type":"object","additionalProperties":false,
+      "required":["direct_observations","analysis_and_inferences","objections_or_scope_differences","proposals","tests_and_results","evidence_references","limitations_and_open_questions"],
+      "properties":{
+        "direct_observations":{"type":"string","maxLength":10000},
+        "analysis_and_inferences":{"type":"string","maxLength":10000},
+        "objections_or_scope_differences":{"type":"string","maxLength":10000},
+        "proposals":{"type":"string","maxLength":10000},
+        "tests_and_results":{"type":"string","maxLength":10000},
+        "evidence_references":{"type":"array","items":{"type":"string","maxLength":1000}},
+        "limitations_and_open_questions":{"type":"string","maxLength":10000}
+      }
+    },
+    "evidence_status":{
+      "type":"object","additionalProperties":false,
+      "required":["participant_declaration","independent_review","acceptance_status","implementation_status"],
+      "properties":{
+        "participant_declaration":{"const":"SELF_REPORTED"},
+        "independent_review":{"enum":["NOT_PERFORMED","PENDING","COMPLETED"]},
+        "acceptance_status":{"enum":["NOT_REVIEWED","UNDER_REVIEW","ACCEPTED","REJECTED","PARTIALLY_ACCEPTED"]},
+        "implementation_status":{"enum":["NOT_AUTHORIZED","PROPOSED","AUTHORIZED","IMPLEMENTED","TESTED"]}
+      }
+    },
+    "privacy":{
+      "type":"object","additionalProperties":false,
+      "required":["secret_or_sensitive_data_included","publication_consent","submission_to_rolling_science","handling"],
+      "properties":{
+        "secret_or_sensitive_data_included":{"const":false},
+        "publication_consent":{"enum":["NOT_REQUESTED","NOT_GIVEN","GIVEN","WITHDRAWN"]},
+        "submission_to_rolling_science":{"enum":["NOT_PERFORMED","PUBLIC_GITHUB_ISSUE","OTHER_AUTHORIZED_ROUTE"]},
+        "handling":{"type":"string","maxLength":1000}
+      }
+    },
+    "limitations":{"type":"array","items":{"type":"string","maxLength":1000}}
+  }
+}

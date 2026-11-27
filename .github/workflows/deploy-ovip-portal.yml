@@ -2,6 +2,12 @@ name: Deploy OVIP Visitor Portal
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'portal/**'
+      - '.github/workflows/deploy-ovip-portal.yml'
 
 permissions:
   contents: read

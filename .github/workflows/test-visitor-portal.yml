@@ -29,3 +29,4 @@ jobs:
         run: |
           node --check portal/app.js
           node --check portal/flow.js
+          node --check portal/cafe.js
