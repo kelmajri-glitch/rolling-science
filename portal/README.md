@@ -5,17 +5,29 @@
 
 ## Portal contents
 
-- `index.html` — visitor landing page and navigation to the application café.
-- `styles.css` — responsive styles shared by the portal and café.
-- `app.js` — public GitHub snapshot lookup and local visitor JSON record generation.
-- `visitor-manifest.json` — machine-readable OVIP capability and data-handling declaration.
+
+- `alnatiq-lab.html` — local experiment-record interface for B-001/B-002.
+- `alnatiq-lab.css` and `alnatiq-lab.js` — local interface styles and browser logic.
+- `index.html` — accessible, responsive visitor interface.
+- `styles.css` — responsive styles.
+- `app.js` — GitHub snapshot lookup and local JSON record generation.
+- `visitor-manifest.json` — machine-readable capability and data-handling declaration.
 - `cafe.html` — AI application café, visit mission, public reading links, and contribution form.
 - `cafe.js` — copyable visit prompt and local contribution JSON generation.
 - `ai-visitor-manifest.json` — machine-readable AI café entry point, roles, capabilities, and permission boundaries.
 - `ai-contribution-schema.json` — JSON Schema for a proposed contribution record.
 - `AI_VISITOR_PILOT.md` — pilot scope, evidence rules, safeguards, and acceptance criteria.
 
+## Alnatiq local experiment lab
+
+Open `alnatiq-lab.html` from this directory to create, filter, inspect, export, import, and delete B-001/B-002 experiment records. The lab stores records in browser `localStorage` on the current device. It does not transmit records to GitHub or any server. Export a backup before clearing browser data. Import performs a basic structural check only; authoritative JSON Schema validation remains available through the repository validation script and CI workflow.
+
+The form currently supports a bounded subset of the experiment record schema. It deliberately initializes human-data presence as false and must not be used to register identifiable human audio or participant data. Human-data and ethics approvals remain separate gates.
+
+## Current behaviour
+
 ## Visitor and application behaviour
+
 
 1. Provides direct links to public repository materials.
 2. The OVIP landing page requests public repository metadata and the current `main` branch SHA from GitHub API.

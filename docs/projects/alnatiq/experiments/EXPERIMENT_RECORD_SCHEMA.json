@@ -1,0 +1,262 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kelmajri-glitch/rolling-science/blob/main/docs/projects/alnatiq/experiments/EXPERIMENT_RECORD_SCHEMA.json",
+  "title": "Alnatiq B-001 B-002 Experiment Record",
+  "description": "Proposed data contract. It does not authorize human-data collection or publication.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_id",
+    "protocol_id",
+    "protocol_version",
+    "record_status",
+    "created_at_utc",
+    "task",
+    "evidence",
+    "benefit",
+    "harm",
+    "burden",
+    "limitations"
+  ],
+  "properties": {
+    "record_id": {
+      "type": "string",
+      "pattern": "^RS-ALNATIQ-(B001|B002)-[A-Za-z0-9-]{3,64}$"
+    },
+    "protocol_id": {
+      "enum": ["RS-ALNATIQ-B001", "RS-ALNATIQ-B002"]
+    },
+    "protocol_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+$"
+    },
+    "record_status": {
+      "enum": ["DRAFT", "PLANNED", "RUN", "REVIEWED", "ACCEPTED", "REJECTED"]
+    },
+    "created_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "language": {"type": ["string", "null"]},
+        "variety": {"type": ["string", "null"]},
+        "locale_description_source": {"type": ["string", "null"]},
+        "setting": {"type": ["string", "null"]},
+        "notes": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "application": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "product": {"type": ["string", "null"]},
+        "provider": {"type": ["string", "null"]},
+        "exposed_model_or_build": {"type": ["string", "null"]},
+        "version": {"type": ["string", "null"]},
+        "access_mode": {"type": ["string", "null"]},
+        "tool_configuration": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "aic_session_id": {"type": ["string", "null"]},
+    "task": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["task_id", "task_type", "procedure"],
+      "properties": {
+        "task_id": {"type": "string"},
+        "task_type": {
+          "enum": [
+            "ANATOMY_REVIEW",
+            "ARTICULATION_REPRESENTATION",
+            "ACOUSTIC_ANALYSIS",
+            "LEARNING_TASK",
+            "SPEECH_GENERATION",
+            "SPEECH_RECOGNITION",
+            "CONTRASTIVE_DISCRIMINATION",
+            "LOCAL_VARIETY_HANDLING",
+            "CORRECTION_RESPONSE",
+            "GENERALIZATION",
+            "UNCERTAINTY_REPORTING",
+            "RECIPROCITY_COMPARISON",
+            "OTHER"
+          ]
+        },
+        "procedure": {"type": "string"},
+        "prompt_or_instructions": {"type": ["string", "null"]},
+        "rubric_version": {"type": ["string", "null"]},
+        "held_out": {"type": ["boolean", "null"]}
+      }
+    },
+    "input_manifest": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["input_id", "input_type", "provenance_status"],
+        "properties": {
+          "input_id": {"type": "string"},
+          "input_type": {"enum": ["SYNTHETIC", "PUBLIC_REFERENCE", "CONSENTED_HUMAN_AUDIO", "GENERATED_AUDIO", "TEXT", "IMAGE", "OTHER"]},
+          "source_reference": {"type": ["string", "null"]},
+          "provenance_status": {"enum": ["DOCUMENTED", "SELF_REPORTED", "UNVERIFIED", "UNAVAILABLE"]},
+          "rights_status": {"type": ["string", "null"]},
+          "content_hash_sha256": {"type": ["string", "null"], "pattern": "^[a-fA-F0-9]{64}$"}
+        }
+      }
+    },
+    "output_manifest": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["output_id", "output_type"],
+        "properties": {
+          "output_id": {"type": "string"},
+          "output_type": {"type": "string"},
+          "artifact_reference": {"type": ["string", "null"]},
+          "content_hash_sha256": {"type": ["string", "null"], "pattern": "^[a-fA-F0-9]{64}$"},
+          "preservation_note": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "adaptation_label": {
+      "enum": [
+        "CONTEXTUAL_ADAPTATION",
+        "CROSS_SESSION_BEHAVIOUR_CHANGE",
+        "MODEL_UPDATE_CONFIRMED",
+        "FINE_TUNING_CONFIRMED",
+        "NOT_ESTABLISHED",
+        "NOT_APPLICABLE"
+      ]
+    },
+    "reference_standard": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["reference_type", "description"],
+        "properties": {
+          "reference_type": {"enum": ["LOCAL_HUMAN_PANEL", "LINGUISTIC_REFERENCE", "ACOUSTIC_MEASUREMENT", "ANATOMICAL_REFERENCE", "INSTRUMENT", "OTHER"]},
+          "description": {"type": "string"},
+          "reviewer_or_source": {"type": ["string", "null"]},
+          "source_location": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "outcome": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "status": {"enum": ["PASS", "PARTIAL", "FAIL", "NOT_ASSESSABLE", "NOT_RUN", "INCONCLUSIVE"]},
+        "numerator": {"type": ["number", "null"], "minimum": 0},
+        "denominator": {"type": ["number", "null"], "minimum": 0},
+        "measure_name": {"type": ["string", "null"]},
+        "measure_value": {"type": ["number", "null"]},
+        "unit": {"type": ["string", "null"]},
+        "missingness": {"type": "array", "items": {"type": "string"}},
+        "uncertainty_and_interval": {"type": ["string", "null"]},
+        "analysis_method": {"type": ["string", "null"]}
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["evidence_id", "claim", "classification"],
+        "properties": {
+          "evidence_id": {"type": "string"},
+          "claim": {"type": "string"},
+          "classification": {"enum": ["OBSERVED", "DOCUMENTED", "SELF_REPORTED", "INFERRED", "PROPOSED", "UNVERIFIED", "UNAVAILABLE", "MEASURED", "MODELLED"]},
+          "source_reference": {"type": ["string", "null"]},
+          "limitation": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "benefit": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["description", "status"],
+        "properties": {
+          "description": {"type": "string"},
+          "status": {"enum": ["OBSERVED", "MEASURED", "INFERRED", "PROPOSED"]},
+          "measure": {"type": ["string", "null"]},
+          "evidence_ids": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "harm": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["description", "status"],
+        "properties": {
+          "description": {"type": "string"},
+          "status": {"enum": ["OBSERVED", "PLAUSIBLE_RISK", "INFERRED", "UNVERIFIED"]},
+          "severity_method": {"type": ["string", "null"]},
+          "mitigation": {"type": ["string", "null"]},
+          "evidence_ids": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "burden": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["burden_type", "description"],
+        "properties": {
+          "burden_type": {"enum": ["TIME", "COMPUTE", "COST", "HUMAN_REVIEW", "COGNITIVE_LOAD", "ACCESS", "OTHER"]},
+          "description": {"type": "string"},
+          "value": {"type": ["number", "null"]},
+          "unit": {"type": ["string", "null"]},
+          "measurement_method": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "rights_privacy": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "human_data_present": {"type": "boolean"},
+        "consent_status": {"enum": ["NOT_APPLICABLE", "NOT_REQUESTED", "PENDING", "GIVEN", "WITHDRAWN", "UNKNOWN"]},
+        "permitted_uses": {"type": "array", "items": {"type": "string"}},
+        "storage_and_retention": {"type": ["string", "null"]},
+        "review_status": {"enum": ["NOT_REQUIRED_FOR_SYNTHETIC", "PENDING", "APPROVED", "REJECTED", "UNKNOWN"]}
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "side_discoveries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["description", "status"],
+        "properties": {
+          "description": {"type": "string"},
+          "status": {"enum": ["UNTRIAGED", "PROPOSED_FOLLOW_UP", "DECLINED", "PROMOTED_TO_NEW_TASK"]},
+          "related_record_id": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "review": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "reviewer": {"type": ["string", "null"]},
+        "reviewed_at_utc": {"type": ["string", "null"], "format": "date-time"},
+        "decision": {"enum": ["PENDING", "ACCEPTED_AS_RECORD", "PARTIALLY_SUPPORTED", "NEEDS_CLARIFICATION", "NOT_VERIFIABLE", "REJECTED_FOR_PRIVACY_OR_SAFETY"]},
+        "notes": {"type": ["string", "null"]},
+        "owner_approval": {"enum": ["PENDING", "APPROVED", "NOT_REQUIRED", "REJECTED"]}
+      }
+    }
+  }
+}

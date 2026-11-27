@@ -1,0 +1,41 @@
+name: Alnatiq experiment record validation
+
+on:
+  pull_request:
+    paths:
+      - "docs/projects/alnatiq/experiments/**"
+      - "scripts/validate_experiment_records.py"
+      - "tests/test_experiment_schema.py"
+      - "requirements-dev.txt"
+      - "portal/alnatiq-lab.html"
+      - "portal/alnatiq-lab.css"
+      - "portal/alnatiq-lab.js"
+      - ".github/workflows/alnatiq-experiment-validation.yml"
+  push:
+    branches:
+      - "feat/alnatiq-b001-b002-execution-v0.1"
+    paths:
+      - "docs/projects/alnatiq/experiments/**"
+      - "scripts/validate_experiment_records.py"
+      - "tests/test_experiment_schema.py"
+      - "requirements-dev.txt"
+      - ".github/workflows/alnatiq-experiment-validation.yml"
+
+jobs:
+  validate-experiment-records:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install validation dependency
+        run: python -m pip install -r requirements-dev.txt
+      - name: Validate synthetic experiment records
+        run: python scripts/validate_experiment_records.py
+      - name: Run schema contract tests
+        run: python -m unittest discover -s tests -p "test_experiment_schema.py" -v
+      - name: Check local lab JavaScript syntax
+        run: node --check portal/alnatiq-lab.js
+      - name: Check local lab HTML assets
+        run: python -c "from pathlib import Path; from html.parser import HTMLParser; p=Path('portal/alnatiq-lab.html'); s=p.read_text(encoding='utf-8'); HTMLParser().feed(s); assert 'alnatiq-lab.css' in s and 'alnatiq-lab.js' in s; assert Path('portal/alnatiq-lab.css').is_file() and Path('portal/alnatiq-lab.js').is_file(); print('PASS: HTML parses and local assets exist')"

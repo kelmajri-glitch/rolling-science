@@ -1,0 +1,122 @@
+{
+  "record_id": "RS-ALNATIQ-B002-SYN-001",
+  "protocol_id": "RS-ALNATIQ-B002",
+  "protocol_version": "0.1",
+  "record_status": "REVIEWED",
+  "created_at_utc": "2026-11-26T08:00:00Z",
+  "environment": {
+    "language": "Arabic",
+    "variety": "Synthetic reference case",
+    "locale_description_source": "Synthetic fixture only",
+    "setting": "automated schema test",
+    "notes": [
+      "No human audio or participant data."
+    ]
+  },
+  "application": {
+    "product": "Synthetic Test Application",
+    "provider": "Not applicable",
+    "exposed_model_or_build": null,
+    "version": null,
+    "access_mode": "synthetic",
+    "tool_configuration": []
+  },
+  "aic_session_id": null,
+  "task": {
+    "task_id": "T08-SYN-001",
+    "task_type": "UNCERTAINTY_REPORTING",
+    "procedure": "Validate record structure only; no application performance claim.",
+    "prompt_or_instructions": null,
+    "rubric_version": "synthetic-0.1",
+    "held_out": true
+  },
+  "input_manifest": [
+    {
+      "input_id": "SYN-IN-001",
+      "input_type": "SYNTHETIC",
+      "source_reference": null,
+      "provenance_status": "DOCUMENTED",
+      "rights_status": "Synthetic fixture",
+      "content_hash_sha256": null
+    }
+  ],
+  "output_manifest": [
+    {
+      "output_id": "SYN-OUT-001",
+      "output_type": "validation-fixture",
+      "artifact_reference": null,
+      "content_hash_sha256": null,
+      "preservation_note": "Synthetic data only"
+    }
+  ],
+  "adaptation_label": "NOT_APPLICABLE",
+  "reference_standard": [
+    {
+      "reference_type": "OTHER",
+      "description": "JSON Schema validation only",
+      "reviewer_or_source": "Automated test",
+      "source_location": null
+    }
+  ],
+  "outcome": {
+    "status": "PASS",
+    "numerator": 1,
+    "denominator": 1,
+    "measure_name": "schema_validity",
+    "measure_value": 1,
+    "unit": "boolean-as-number",
+    "missingness": [],
+    "uncertainty_and_interval": null,
+    "analysis_method": "JSON Schema Draft 2020-12 validation"
+  },
+  "evidence": [
+    {
+      "evidence_id": "E-SYN-001",
+      "claim": "This fixture conforms to the experiment record schema.",
+      "classification": "OBSERVED",
+      "source_reference": "automated-test",
+      "limitation": "Does not establish scientific validity or application performance."
+    }
+  ],
+  "benefit": [
+    {
+      "description": "Confirms the validator accepts a structurally valid synthetic record.",
+      "status": "OBSERVED",
+      "measure": "test outcome",
+      "evidence_ids": [
+        "E-SYN-001"
+      ]
+    }
+  ],
+  "harm": [],
+  "burden": [
+    {
+      "burden_type": "TIME",
+      "description": "Automated validation runtime",
+      "value": null,
+      "unit": null,
+      "measurement_method": null
+    }
+  ],
+  "rights_privacy": {
+    "human_data_present": false,
+    "consent_status": "NOT_APPLICABLE",
+    "permitted_uses": [
+      "automated schema testing"
+    ],
+    "storage_and_retention": "Repository fixture; synthetic only",
+    "review_status": "NOT_REQUIRED_FOR_SYNTHETIC"
+  },
+  "limitations": [
+    "Synthetic fixture; not a real experiment.",
+    "Schema validity is not scientific approval."
+  ],
+  "side_discoveries": [],
+  "review": {
+    "reviewer": "Automated test",
+    "reviewed_at_utc": "2026-11-26T08:01:00Z",
+    "decision": "ACCEPTED_AS_RECORD",
+    "notes": "Structural validation only.",
+    "owner_approval": "NOT_REQUIRED"
+  }
+}
